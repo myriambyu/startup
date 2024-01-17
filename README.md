@@ -22,13 +22,24 @@ Retaining mission languages can be hard. Vocabulary is often the first thing to 
 - Display of next vocabulary word
 - Display of total progress
 - Display of progress in each category
+- Display of total number of users who have mastered each category
 - Ability to select categories to practice
 
 ### Technologies
 
 Here are the ways I am going to use the required technologies:
 
-HTML - Uses 3 HTML pages with the correct HTML structure. The first page is for login, the second, for practicing vocab, and the third for viewing progress. Each page has a link to the other pages. 
-CSS - Styling that is balanced with a color theme that corresponds with the pictures used. Styling that fits different screen sizes and is consistent for each page.
+- **HTML** - Uses 3 HTML pages with the correct HTML structure. The first page is for login, the second, for practicing vocab, and the third for viewing progress. Each page has a link to the other pages. 
+- **CSS** - Styling that is balanced with a color theme that corresponds with the pictures used. Styling that fits different screen sizes and is consistent for each page.
+- **JavaScript** - Provides login, displays the vocab categories, displays vocab answers, displays results, backend endpoint calls.
+- **Service** - Backend service with endpoints for:
+  - Login
+  - Submitting category
+  - Retrieving vocab words
+  - Submitting word occurrence
+  - Retrieving vocab words with new order
+- **DB/Login** - Users, user credentials, categories, and vocabulary words are stored in the database.
+- **WebSocket** - As users practice, they can view the total number of users who have mastered each category on the progress page.
+- 
 
 
