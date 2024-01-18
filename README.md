@@ -10,6 +10,10 @@ Retaining mission languages can be hard. Vocabulary is often the first thing to 
 
 ### Design
 
+<img src="https://github.com/myriambyu/startup/assets/156371593/3dd8743f-ca35-4fd5-8ede-c13f23c5749f" width="600">
+<img src="https://github.com/myriambyu/startup/assets/156371593/791083ef-4e36-4138-b44e-84dcb0150f6f" width="600">
+<img src="https://github.com/myriambyu/startup/assets/156371593/ce0b3ea1-aacb-4832-8893-31dbe9439b8a" width="600">
+
 ### Key Features
 
 - Login
@@ -40,6 +44,5 @@ Here are the ways I am going to use the required technologies:
   - Retrieving vocab words with new order
 - **DB/Login** - Users, user credentials, categories, and vocabulary words are stored in the database.
 - **WebSocket** - As users practice, they can view the total number of users who have mastered each category on the progress page.
-- 
-
+- **React** - Porting from react, framework for program.
 
