@@ -46,21 +46,56 @@ ls -l | grep ' Nov ' | wc -l
 - CTRL-C - Kill the currently running command
 
 **Vi commands**
-- :h	help
-i	enter insert mode. This will allow you to type and delete text. Use ESC to exit insert mode. No other commands will work while in insert mode.
-- u	undo
-- CTRL-r	redo
-- gg	go to beginning of file
-- G	go to end of file
-- /	search for text that you type after /
-- n	next search match
-- N	previous search match
-- v	visually select text
-- y	yank or copy selected text to clipboard
-- p	paste clipboard
-- CTRL-wv	Split window vertically
-- CTRL-ww	Toggle windows
-- CTRL-wq	Close current window
-- :e	Open a file. Type ahead available. If you open a directory you can navigate it in the window
-- :w	write file (save)
-- :q	quit. Use :q! to exit without saving
+- :h	- help
+- i	- enter insert mode. This will allow you to type and delete text. Use ESC to exit insert mode. No other commands will work while in insert mode.
+- u	- undo
+- CTRL-r	- redo
+- gg	- go to beginning of file
+- G	- go to end of file
+- /	- search for text that you type after /
+- n	- next search match
+- N	- previous search match
+- v	- visually select text
+- y	- yank or copy selected text to clipboard
+- p	- paste clipboard
+- CTRL-wv	- Split window vertically
+- CTRL-ww	- Toggle windows
+- CTRL-wq	- Close current window
+- :e	- Open a file. Type ahead available. If you open a directory you can navigate it in the window
+- :w	- write file (save)
+- :q	- quit. Use :q! to exit without saving
+
+**HTML Common Elements**
+- html	- The page container
+- head	- Header information
+- title	- Title of the page
+- meta	- Metadata for the page such as character set or viewport settings
+- script	- JavaScript reference. Either a external reference, or inline
+- include	- External content reference
+- body	- The entire content body of the page
+- header	- Header of the main content
+- footer	- Footer of the main content
+- nav	- Navigational inputs
+- main	- Main content of the page
+- section	- A section of the main content
+- aside	- Aside content from the main content
+- div	- A block division of content
+- span	- An inline span of content
+- h<1-9>	- Text heading. From h1, the highest level, down to h9, the lowest level
+- p	- A paragraph of text
+- b	- Bring attention
+- table	- Table
+- tr	- Table row
+- th	- Table header
+- td	- Table data
+- ol,ul	- Ordered or unordered list
+- li	- List item
+- a	- Anchor the text to a hyperlink
+- img	- Graphical image reference
+- dialog	- Interactive component such as a confirmation
+- form	- A collection of user input
+- input	- User input field
+- audio	- Audio content
+- video	- Video content
+- svg	- Scalable vector graphic content
+- iframe	- Inline frame of another HTML page
