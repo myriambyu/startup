@@ -111,4 +111,8 @@ ls -l | grep ' Nov ' | wc -l
 - label	- Individual input label	\<label for="range">Range: \</label>
 - output	- Output of input	\<output for="range">0\</output>
 - meter	- Display value with a known range	\<meter min="0" max="100" value="50">\</meter>
+- 
+
+**ADDING IMAGES**
+- Example codeing: \<img alt="mountain landscape" src="https://images.pexels.com/photos/164170/pexels-photo-164170.jpeg" />
 
