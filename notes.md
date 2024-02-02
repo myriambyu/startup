@@ -142,3 +142,5 @@ ls -l | grep ' Nov ' | wc -l
 
 *reminder to commit to vs code*
 
+refer to this link: https://www.w3schools.com/howto/howto_css_images_side_by_side.asp
+
