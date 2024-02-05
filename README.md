@@ -46,3 +46,17 @@ Here are the ways I am going to use the required technologies:
 - **WebSocket** - As users practice, they can view the total number of users who have mastered each category on the progress page.
 - **React** - Porting from react, framework for program.
 
+## HTML deliverable
+
+➡️ I used HTML to structure my application
+
+- **HTML pages** - 4 html pages for login, practice, flashcards, and progress.
+- **HTML tags** - Each html page uses the tags for BODY, NAV, MAIN, HEADER, FOOTER.
+- **Links** - All pages link to login, practice, and progress. Practice.html links to the flashcards page.
+- **Textual content** - Finnish quote and vocabulary words.
+- **3rd party service cells** - Placeholder for 3rd party service calls with login, retrieving vocab words, submitting word occurance.
+- **Images** - Image on login page and images representing vocab categories on the practice page.
+- **Login/User name display**  - Input box and submit button for login, placeholder for user name display.
+- **Database** 10% - Placeholder for database data represented by vocabulary word flashcards on the flashcard page. 
+- **WebSocket** - The count of total users mastered on the progress page.
+
