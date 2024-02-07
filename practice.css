@@ -1,12 +1,26 @@
 .row {
     display: flex;
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
   }
   
   .column {
     flex: 33.33%;
-    padding: 5px;
+    padding: 10px;
+    text-align: center;
+    font-size: 30px;
+    color: black;
   }
-
+  a {
+    text-decoration: none;
+    color: #3f5a36;
+  }
+  img {
+    border-radius: 10px;
+  }
+ 
   header {
     flex: 0 80px;
   }
@@ -14,4 +28,11 @@
   footer {
     flex: 0 30px;
   }
-  
+  body {
+    background-color: #CC7A56;
+    color: white;
+  }
+   {
+    background-color: white;
+    color: black;
+  }
