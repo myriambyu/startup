@@ -1,3 +1,16 @@
+body {
+  display: flex;
+  flex-direction:column;
+}
+header {
+  flex: 0, 75px;
+}
+main {
+  flex: 1;
+}
+footer {
+  flex: 0, 50px;
+}
 .row {
     display: flex;
     background-color: white;
