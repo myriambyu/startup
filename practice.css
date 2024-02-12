@@ -63,10 +63,13 @@ menu {
     background-color: #CC7A56;
     color: white;
   }
-   {
-    background-color: white;
-    color: black;
+  .users {
+    text-align: right;
+    font-size: 1vw;
+    display: flex;
+    position: absolute;
+    right: 1%;
   }
-  nav {
-    
+  h1 {
+    font-size: 3vw;
   }
