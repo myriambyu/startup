@@ -4,6 +4,7 @@ body {
   background-color: #CC7A56;
   color: white;
   min-width: 300px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 header {
   flex: 0, 75px;
@@ -85,4 +86,13 @@ menu {
     gap: 3em;
     justify-content: center;
     align-items: center;
+  
+  }
+  .button {
+  background-color: white;
+  color:#3f5a36;
+  border-radius: 5px;
+  border-style: none;
+  height: 40px;
+  padding: 5px 15px;
   }
