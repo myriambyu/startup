@@ -101,3 +101,15 @@ menu {
   .button:hover {
     border: 1px solid white;
   }
+  .placeholder {
+    height: 29px;
+    padding: 5px;
+    border-radius: 5px;
+    border-style: none;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    
+  }
+  .container {
+    align-items: center;
+
+  }
