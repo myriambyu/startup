@@ -9,7 +9,7 @@ header {
   flex: 0, 75px;
 }
 main {
-  flex: 1 calc(100vh - 110px);
+  flex: 1 calc(90vh - 110px);
   display: flex;
   flex-direction: column;
 }
@@ -70,6 +70,8 @@ menu {
     flex-direction: row;
     align-items: center;
     gap: 1em;
+    padding-bottom: 20px;
+    padding-top: 10px;
   }
   h3 {
     font-size: 1.5vw;
