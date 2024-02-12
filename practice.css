@@ -26,7 +26,6 @@ menu {
   align-items: center;
   gap: 3.5em;
   font-size: 1.5vw;
-  align-items: center;
   justify-content: center;
 }
 .row {
@@ -72,4 +71,10 @@ menu {
   }
   h1 {
     font-size: 3vw;
+  }
+  .quote {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
   }
