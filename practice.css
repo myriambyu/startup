@@ -3,12 +3,15 @@ body {
   flex-direction:column;
   background-color: #CC7A56;
   color: white;
+  min-width: 300px;
 }
 header {
   flex: 0, 75px;
 }
 main {
-  flex: 1;
+  flex: 1 calc(100vh - 110px);
+  display: flex;
+  flex-direction: column;
 }
 footer {
   flex: 0, 50px;
