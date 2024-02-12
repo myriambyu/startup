@@ -17,6 +17,10 @@ main {
 footer {
   flex: 0, 50px;
 }
+.footer-nav a {
+  text-decoration: none;
+  color:#3f5a36;
+}
 .top-bar {
   flex: 1;
   display: flex;
@@ -49,7 +53,7 @@ menu {
     font-size: 30px;
     color: black;
   }
-  a {
+  nav a {
     text-decoration: none;
     color: #3f5a36;
   }
@@ -137,3 +141,22 @@ menu {
     justify-content: center;
     text-align: center;
   }
+  .practice {
+    text-decoration: none;
+    background-color:#3f5a36;
+    color: white;
+    border-radius: 5px;
+    border-style: none;
+    height: 40px;
+    padding: 0px 15px 3px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size:large;
+  }
+  .practice:hover {
+    border: 1px solid white;
+  }
+  .practice a {
+    text-decoration: none;
+    color: white;
+  }
+  
