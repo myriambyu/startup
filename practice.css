@@ -94,7 +94,7 @@ menu {
   border-radius: 5px;
   border-style: none;
   height: 40px;
-  padding: 5px 15px;
+  padding: 0px 15px 3px;
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size:large;
   }
@@ -102,14 +102,26 @@ menu {
     border: 1px solid white;
   }
   .placeholder {
-    height: 29px;
-    padding: 5px;
+    height: 39px;
+    padding: 0px;
     border-radius: 5px;
     border-style: none;
     font-family:Georgia, 'Times New Roman', Times, serif;
+    padding-left: 5px;
+    margin-left: 5px;
+    margin-right: 10px;
     
   }
   .container {
     align-items: center;
 
+  }
+  .login {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  h2 {
+    font-size: 2vw;
   }
