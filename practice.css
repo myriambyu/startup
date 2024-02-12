@@ -89,10 +89,15 @@ menu {
   
   }
   .button {
-  background-color: white;
-  color:#3f5a36;
+  background-color:#3f5a36;
+  color: white;
   border-radius: 5px;
   border-style: none;
   height: 40px;
   padding: 5px 15px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size:large;
+  }
+  .button:hover {
+    border: 1px solid white;
   }
