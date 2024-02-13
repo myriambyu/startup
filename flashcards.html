@@ -4,34 +4,45 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Progress</title>
+        <link rel="stylesheet" href="practice.css">
     </head>
     <body>
         <header>
-            <h1>Suomi Practice</h1>
-            <nav>
-                <menu>
-                    <li><a href="index.html">Login</a></li>
-                    <li><a href="practice.html">Practice</a></li>
-                    <li><a href="progress.html">Progress</a></li>
-                </menu>
-            </nav>
+            <div class="top-bar">
+                <h1>Suomi Practice</h1>
+                <nav>
+                    <menu>
+                      <li><a href="index.html">Login</a></li>
+                      <li><a href="practice.html">Practice</a></li>
+                      <li><a href="progress.html">Progress</a></li>
+                    </menu>
+                </nav>
+                <div class="users">
+                  User-name: 
+                  <span class="User-name"> Unknown</span>
+                </div>
+              </div>
+            <hr />
         </header>
-        <hr />
         <main>
-            <a href="#" class="back round">&#8249;</a>
-            <button type="less">See less</button>
-            <div class="flashcard">
-                <div id="vocab">Rakkaus</div>
-                <button type="flip"> Translation </button>
+            <div class="flash-content">
+                <a href="#" class="round">&#8249;</a>
+                <button type="less">See less</button>
+                <div class="flashcard">
+                    <div id="vocab" class="card">Rakkaus</div>
+                    <button type="flip"> Translation </button>
+                </div>
+                <button type="more">See more</button>
+                <a href="#" class="round">&#8250;</a>
             </div>
-            <button type="more">See more</button>
-            <a href="#" class="next round">&#8250;</a>
         </main>
     </body>
     <footer>
         <hr />
-        <p>Author's name: Myriam Anderson</p>
-        <a href="https://github.com/myriambyu/startup.git">GitHub</a>
+        <div class="footer-nav">   
+          <p>Author's name: Myriam Anderson</p>
+          <a href="https://github.com/myriambyu/startup.git">GitHub</a>
+        </div>
     </footer>
 </html>
     
