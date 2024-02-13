@@ -166,4 +166,30 @@ menu {
   }
  progress {
   width: 100%;
+  margin-top: 20px;
+  margin-bottom: 10px;
+ }
+ 
+ table {
+  width: 99%;
+  border: 1px solid;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+
+ }
+ table, td {
+  padding: 25px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+ }
+ .progress {
+  padding: 10px;
+ }
+ td {
+  width: 30%;
+ }
+ tr {
+  width: 30%;
  }
