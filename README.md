@@ -60,3 +60,14 @@ Here are the ways I am going to use the required technologies:
 - **Database** 10% - Placeholder for database data represented by vocabulary word flashcards on the flashcard page. 
 - **WebSocket** - The count of total users mastered on the progress page.
 
+## CSS deliverable
+
+➡️ I used CSS to style my application
+
+- **Header, footer, and main content body** - Used CSS to style these elements in each page of the application.
+- **Navigation Elements** - Each page has a consistently styled navigation bar.
+- **Window Resizing** - Flex is used to adjust the sizing of the content to match different window sizes. The header and footer dissapear and the sizing and layout of certain elements change to match smaller screens.
+- **Elements** - Used consistent colors and a balance of space to content.
+- **Text Content** -The font and basic layout is consistent.
+- **Images** -The images are sized to match the layout of the application.
+
