@@ -419,4 +419,128 @@ console.log(a.length);
 // OUTPUT: 4
 ~~~
 
+*JSON*
 
+JSON document data types:
+- string	```"crockford"```
+- number	```42```
+- boolean	```true```
+- array	```[null,42,"crockford"]```
+- object	```{"a":1,"b":"crockford"}```
+- null	```null```
+
+- a JSON document contains an object. Objects contain zero or more key value pairs. The key is always a string, and the value must be one of the valid JSON data types. Key value pairs are delimited with commas. Curly braces delimit an object, square brackets and commas delimit arrays, and strings are always delimited with double quotes.
+~~~
+const obj = { a: 2, b: 'crockford', c: undefined };
+const json = JSON.stringify(obj);
+const objFromJson = JSON.parse(json);
+
+console.log(obj, json, objFromJson);
+
+// OUTPUT:
+// {a: 2, b: 'crockford', c: undefined}
+// {"a":2, "b":"crockford"}
+// {a: 2, b: 'crockford'}
+~~~
+**Objects**
+~~~
+const obj = new Object({ a: 3 });
+obj['b'] = 'fish';
+obj.c = [1, 2, 3];
+obj.hello = function () {
+  console.log('hello');
+};
+
+console.log(obj);
+// OUTPUT: {a: 3, b: 'fish', c: [1,2,3], hello: func}
+~~~
+*object funtions:*
+
+- entries	- Returns an array of key value pairs
+- keys	- Returns an array of keys
+- values	- Returns an array of values
+
+~~~
+const obj = {
+  a: 3,
+  b: 'fish',
+};
+
+console.log(Object.entries(obj));
+// OUTPUT: [['a', 3], ['b', 'fish']]
+console.log(Object.keys(obj));
+// OUTPUT: ['a', 'b']
+console.log(Object.values(obj));
+// OUTPUT: [3, 'fish']
+~~~
+Any function that returns an object is considered a constructor and can be invoked with the new operator.
+~~~
+function Person(name) {
+  return {
+    name: name,
+    log: function () {
+      console.log('My name is ' + this.name);
+    },
+  };
+}
+
+const p = new Person('Eich');
+p.log();
+// OUTPUT: My name is Eich
+~~~
+clases:
+~~~
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+
+  log() {
+    console.log('My name is ' + this.name);
+  }
+}
+
+const p = new Person('Eich');
+p.log();
+// OUTPUT: My name is Eich
+~~~
+~~~
+class Person {
+  #name;
+
+  constructor(name) {
+    this.#name = name;
+  }
+}
+
+const p = new Person('Eich');
+p.#name = 'Lie';
+// OUTPUT: Uncaught SyntaxError: Private field '#name' must be declared in an enclosing class
+~~~
+inheritance using extends and super:
+~~~
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+
+  print() {
+    return 'My name is ' + this.name;
+  }
+}
+
+class Employee extends Person {
+  constructor(name, position) {
+    super(name);
+    this.position = position;
+  }
+
+  print() {
+    return super.print() + '. I am a ' + this.position;
+  }
+}
+
+const e = new Employee('Eich', 'programmer');
+console.log(e.print());
+// OUTPUT: My name is Eich. I am a programmer
+~~~
