@@ -269,6 +269,154 @@ string functions:
 - startsWith()	- True if the string has a given prefix
 - endsWith()	- True if the string has a given suffix
 - toLowerCase()	- Converts all characters to lowercase
+~~~
+const s = 'Example:조선글';
 
+console.log(s.length);
+// OUTPUT: 11
+console.log(s.indexOf('조선글'));
+// OUTPUT: 8
+console.log(s.split(':'));
+// OUTPUT: ['Example', '조선글']
+console.log(s.startsWith('Ex'));
+// OUTPUT: true
+console.log(s.endsWith('조선글'));
+// OUTPUT: true
+console.log(s.toLowerCase());
+// OUTPUT: example:조선글
+~~~
+
+**functions**
+~~~
+function hello(who) {
+  who.count++;
+  console.log('hello ' + who.name);
+}
+
+hello({ name: 'world', count: 0 });
+// OUTPUT: hello world
+~~~
+~~~
+function labeler(value, title = 'title') {
+  console.log(`${title}=${value}`);
+}
+
+labeler();
+// OUTPUT: title=undefined
+
+labeler('fish');
+// OUTPUT: title=fish
+
+labeler('fish', 'animal');
+// OUTPUT: animal=fish
+~~~
+- anonymous functions
+~~~
+// Function that takes a function as a parameter
+function doMath(operation, a, b) {
+  return operation(a, b);
+}
+
+// Anonymous function assigned to a variable
+const add = function (a, b) {
+  return a + b;
+};
+
+console.log(doMath(add, 5, 3));
+// OUTPUT: 8
+
+// Anonymous function assigned to a parameter
+console.log(
+  doMath(
+    function (a, b) {
+      return a - b;
+    },
+    5,
+    3
+  )
+);
+// OUTPUT: 2
+~~~
+- inner functions
+~~~
+function labeler(value) {
+  function stringLabeler(value) {
+    console.log('string=' + value);
+  }
+  function numberLabeler(value) {
+    console.log('number=' + value);
+  }
+
+  if (typeof value == 'string') {
+    stringLabeler(value);
+  } else if (typeof value == 'number') {
+    numberLabeler(value);
+  }
+}
+
+labeler(5);
+// OUTPUT: number=5
+
+labeler('fish');
+// OUTPUT: string=fish
+~~~
+* arrow function*
+~~~
+const a = [1, 2, 3, 4];
+
+// standard function syntax
+a.sort(function (v1, v2) {
+  return v1 - v2;
+});
+
+// arrow function syntax
+a.sort((v1, v2) => v1 - v2);
+~~~
+- Arrow functions also have special rules for the return keyword. The return keyword is optional if no curly braces are provided for the function and it contains a single expression. In that case the result of the expression is automatically returned. If curly braces are provided then the arrow function behaves just like a standard function.
+- debounce:
+~~~
+window.addEventListener(
+  'scroll',
+  debounce(500, () => {
+    console.log('Executed an expensive calculation');
+  })
+);
+~~~
+**Array**
+~~~
+const a = [1, 2, 3];
+console.log(a[1]);
+// OUTPUT: 2
+
+console.log(a.length);
+// OUTPUT: 3
+~~~
+array object funtions:
+- push	- Add an item to the end of the array	```a.push(4)```
+- pop	- Remove an item from the end of the array	```x = a.pop()```
+- slice	- Return a sub-array	```a.slice(1,-1)```
+- sort	- Run a function to sort an array in place	```a.sort((a,b) => b-a)```
+- values	- Creates an iterator for use with a for of loop	```for (i of a.values()) {...}```
+- find	- Find the first item satisfied by a test function	```a.find(i => i < 2)```
+- forEach	- Run a function on each array item	```a.forEach(console.log)```
+- reduce	- Run a function to reduce each array item to a single item	```a.reduce((a, c) => a + c)```
+- map	- Run a function to map an array to a new array	```a.map(i => i+i)```
+- filter	- Run a function to remove items	```a.filter(i => i%2)```
+- every	Run a function to test if all items match	```a.every(i => i < 3)```
+- some	Run a function to test if any items match	```a.some(i => 1 < 1)```
+~~~
+const a = [1, 2, 3];
+
+console.log(a.map((i) => i + i));
+// OUTPUT: [2,4,6]
+console.log(a.reduce((v1, v2) => v1 + v2));
+// OUTPUT: 6
+console.log(a.sort((v1, v2) => v2 - v1));
+// OUTPUT: [3,2,1]
+
+a.push(4);
+console.log(a.length);
+// OUTPUT: 4
+~~~
 
 
