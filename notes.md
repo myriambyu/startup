@@ -145,3 +145,130 @@ ls -l | grep ' Nov ' | wc -l
 refer to this link: https://www.w3schools.com/howto/howto_css_images_side_by_side.asp
 use this for previous and next buttons: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_next_prev
 
+**Javascript**
+- ```console.log('Hello' + ' ' + 'world');```
+- ```function join(a, b)``` ```{
+  return a + ' ' + b;
+}```
+```console.log(join('Hello', 'world'));```
+- ```console.log('%c JavaScript Demo', 'font-size:1.5em; color:green;');```
+-If you are trying to see how long a piece of code is running you can wrap it with time and timeEnd calls and it will output the duration between the time and timeEnd calls.```console.time('demo time');``` or ```console.timeEnd('demo time');```
+- use \<script> or src to add java to html. here's an example of one click ```<button onclick="let i=1;i++;console.log(i)">press me</button>```
+~~~
+<head>
+  <script src="javascript.js"></script>
+</head>
+<body>
+  <button onclick="sayHello()">Say Hello</button>
+  <button onclick="sayGoodbye()">Say Goodbye</button>
+  <script>
+    function sayGoodbye() {
+      alert('Goodbye');
+    }
+  </script>
+</body>
+~~~
+- declaring variables
+~~~
+let x = 1;
+
+const y = 2;
+~~~
+**variable types**
+- Null	- The type of a variable that has not been assigned a value.
+- Undefined	- The type of a variable that has not been defined.
+- Boolean	- true or false.
+- Number	- A 64-bit signed number.
+- BigInt	- A number of arbitrary magnitude.
+- String	- A textual sequence of characters.
+- Symbol	- A unique value.
+
+**object types:**
+
+- Object	- A collection of properties represented by name-value pairs. Values can be of any type.	```{a:3, b:'fish'}```
+- Function	- An object that has the ability to be called.	```function a() {}```
+- Date	- Calendar dates and times.	```new Date('1995-12-17')```
+- Array	- An ordered sequence of any type.	```[3, 'fish']```
+- Map	- A collection of key-value pairs that support efficient lookups.	```new Map()```
+- JSON	- A lightweight data-interchange format used to share information across programs.	```{"a":3, "b":"fish"}```
+
+*conditionals*
+~~~
+if (a === 1) {
+  //...
+} else if (b === 2) {
+  //...
+} else {
+  //...
+}
+~~~
+```a === 1 ? console.log(1) : console.log('not 1');```
+
+*loops*
+~~~
+for (let i = 0; i < 2; i++) {
+  console.log(i);
+}
+// OUTPUT: 0 1
+~~~
+~~~
+let i = 0;
+do {
+  console.log(i);
+  i++;
+} while (i < 2);
+// OUTPUT: 0 1
+~~~
+~~~
+let i = 0;
+while (i < 2) {
+  console.log(i);
+  i++;
+}
+// OUTPUT: 0 1
+~~~
+~~~
+const obj = { a: 1, b: 'fish' };
+for (const name in obj) {
+  console.log(name);
+}
+// OUTPUT: a
+// OUTPUT: b
+~~~
+~~~
+const arr = ['a', 'b'];
+for (const name in arr) {
+  console.log(name);
+}
+// OUTPUT: 0
+// OUTPUT: 1
+~~~
+~~~
+let i = 0;
+while (true) {
+  console.log(i);
+  if (i === 0) {
+    i++;
+    continue;
+  } else {
+    break;
+  }
+}
+// OUTPUT: 0 1
+~~~
+**strings**
+~~~
+const l = 'literal';
+console.log(`string ${l + (1 + 1)} text`);
+// OUTPUT: string literal2 text
+~~~
+string functions:
+- length	- The number of characters in the string
+- indexOf()	- The starting index of a given substring
+- split()	- Split the string into an array on the given delimiter string
+- startsWith()	- True if the string has a given prefix
+- endsWith()	- True if the string has a given suffix
+- toLowerCase()	- Converts all characters to lowercase
+
+
+
