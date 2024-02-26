@@ -266,6 +266,50 @@ section:hover {
 - transform	transform-function	rotate(0.5turn)	Applies a transformation to the element
 - width	unit	25vmin	Sets the width of the box
 - z-index	number	100	Controls the positioning of the element on the z axis
+
+*importing fonts*
+~~~
+@font-face {
+  font-family: 'Quicksand';
+  src: url('https://cs260.click/fonts/quicksand.ttf');
+}
+
+p {
+  font-family: Quicksand;
+}
+~~~
+~~~
+@import url('https://fonts.googleapis.com/css2?family=Rubik Microbe&display=swap');
+
+p {
+  font-family: 'Rubik Microbe';
+}
+~~~
+*animation*
+~~~
+p {
+  text-align: center;
+  font-size: 20vh;
+
+  animation-name: demo;
+  animation-duration: 3s;
+}
+@keyframes demo {
+  from {
+    font-size: 0vh;
+  }
+
+  95% {
+    font-size: 21vh;
+  }
+
+  to {
+    font-size: 20vh;
+  }
+}
+~~~
+
+
 **Javascript**
 - ```console.log('Hello' + ' ' + 'world');```
 - ```function join(a, b)``` ```{
