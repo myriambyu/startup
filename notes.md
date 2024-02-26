@@ -100,6 +100,73 @@ ls -l | grep ' Nov ' | wc -l
 - svg	- Scalable vector graphic content
 - iframe	- Inline frame of another HTML page
 
+~~~
+<body>
+  <p>Body</p>
+  <header>
+    <p>Header - <span>Span</span></p>
+    <nav>
+      Navigation
+      <div>Div</div>
+      <div>Div</div>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <p>Section</p>
+      <ul>
+        <li>List</li>
+        <li>List</li>
+        <li>List</li>
+      </ul>
+    </section>
+    <section>
+      <p>Section</p>
+      <table>
+        <tr>
+          <th>Table</th>
+          <th>Table</th>
+          <th>Table</th>
+        </tr>
+        <tr>
+          <td>table</td>
+          <td>table</td>
+          <td>table</td>
+        </tr>
+      </table>
+    </section>
+    <aside>
+      <p>Aside</p>
+    </aside>
+  </main>
+
+  <footer>
+    <div>Footer - <span>Span</span></div>
+  </footer>
+</body>
+~~~
+*input elements:*
+- text	Single line textual value
+- password	Obscured password
+- email	Email address
+- tel	Telephone number
+- url	URL address
+- vnumber	Numerical value
+- checkbox	Inclusive selection
+- radio	Exclusive selection
+- range	Range limited number
+- date	Year, month, day
+- datetime-local	Date and time
+- month	Year, month
+- week	Week of year
+- color	Color
+- file	Local file
+- submit	button to trigger form submission
+~~~
+<label for="checkbox1">Check me</label> <input type="checkbox" name="varCheckbox" value="checkbox1" checked />
+~~~
+
 **Input Elements and Examples**
 - form	- Input container and submission	\<form action="form.html" method="post">
 - fieldset	- Labeled input grouping	\<fieldset> ... \</fieldset>
@@ -144,7 +211,61 @@ ls -l | grep ' Nov ' | wc -l
 
 refer to this link: https://www.w3schools.com/howto/howto_css_images_side_by_side.asp
 use this for previous and next buttons: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_next_prev
-
+**CSS**
+*selectors*
+- class selector:
+~~~
+p.summary {
+  font-weight: bold;
+}
+~~~
+- ID selector:
+~~~
+#physics {
+  border-left: solid 1em purple;
+}
+~~~
+attribute selector:
+~~~
+p[class='summary'] {
+  color: red;
+}
+~~~
+pseudo selector:
+~~~
+section:hover {
+  border-left: solid 1em purple;
+}
+~~~
+*declarations*
+- background-color	color	red	Fill the background color
+- border	color width style	#fad solid medium	Sets the border using shorthand where any or all of the values may be provided
+- border-radius	unit	50%	The size of the border radius
+- box-shadow	x-offset y-offset blu-radius color	2px 2px 2px gray	Creates a shadow
+- columns	number	3	Number of textual columns
+- column-rule	color width style	solid thin black	Sets the border used between columns using border shorthand
+- color	color	rgb(128, 0, 0)	Sets the text color
+- cursor	type	grab	Sets the cursor to display when hovering over the element
+- display	type	none	Defines how to display the element and its children
+- filter	filter-function	grayscale(30%)	Applies a visual filter
+- float	direction	right	Places the element to the left or right in the flow
+- flex			Flex layout. Used for responsive design
+- font	family size style	Arial 1.2em bold	Defines the text font using shorthand
+- grid			Grid layout. Used for responsive design
+- height	unit	.25em	Sets the height of the box
+- margin	unit	5px 5px 0 0	Sets the margin spacing
+- max-[width/height]	unit	20%	Restricts the width or height to no more than the unit
+- min-[width/height]	unit	10vh	Restricts the width or height to no less than the unit
+- opacity	number	.9	Sets how opaque the element is
+- overflow	[visible/hidden/scroll/auto]	scroll	Defines what happens when the content does not fix in its box
+- position	[static/relative/absolute/sticky]	absolute	Defines how the element is positioned in the document
+- padding	unit	1em 2em	Sets the padding spacing
+- left	unit	10rem	The horizontal value of a positioned element
+- text-align	[start/end/center/justify]	end	Defines how the text is aligned in the element
+- top	unit	50px	The vertical value of a positioned element
+- transform	transform-function	rotate(0.5turn)	Applies a transformation to the element
+- width	unit	25vmin	Sets the width of the box
+- z-index	number	100	Controls the positioning of the element on the z axis
 **Javascript**
 - ```console.log('Hello' + ' ' + 'world');```
 - ```function join(a, b)``` ```{
@@ -871,4 +992,400 @@ Alice
 [1, 'One', true]
 ~~~
 **Promises**
+
+Promise stages:
+1. pending - Currently running asynchronously
+2. fulfilled - Completed successfully
+3. rejected - Failed to complete
+
+~~~
+const delay = (msg, wait) => {
+  setTimeout(() => {
+    console.log(msg, wait);
+  }, 1000 * wait);
+};
+
+new Promise((resolve, reject) => {
+  // Code executing in the promise
+  for (let i = 0; i < 3; i++) {
+    delay('In promise', i);
+  }
+});
+
+// Code executing after the promise
+for (let i = 0; i < 3; i++) {
+  delay('After promise', i);
+}
+
+// OUTPUT:
+//   In promise 0
+//   After promise 0
+//   In promise 1
+//   After promise 1
+//   In promise 2
+//   After promise 2
+~~~
+~~~
+const coinToss = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    if (Math.random() > 0.5) {
+      resolve('success');
+    } else {
+      reject('error');
+    }
+  }, 10000);
+});
+~~~
+- output displays pending first and after a few seconds displayes fulfulled
+- then, catch, finally:
+~~~
+const coinToss = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    if (Math.random() > 0.1) {
+      resolve(Math.random() > 0.5 ? 'heads' : 'tails');
+    } else {
+      reject('fell off table');
+    }
+  }, 10000);
+});
+coinToss
+  .then((result) => console.log(`Coin toss result: ${result}`))
+  .catch((err) => console.log(`Error: ${err}`))
+  .finally(() => console.log('Toss completed'));
+
+// OUTPUT:
+//    Coin toss result: tails
+//    Toss completed
+~~~
+
+*Async/await*
+- version of the above coinToss:
+~~~
+try {
+  const result = await coinToss();
+  console.log(`Toss result ${result}`);
+} catch (err) {
+  console.error(`Error: ${err}`);
+} finally {
+  console.log(`Toss completed`);
+}
+~~~
+**MY HTML**
+~~~
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset "UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SuomiPractice HTML</title>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+    <header>
+      <div class="top-bar">
+        <h1>Suomi Practice</h1>
+        <nav>
+            <menu>
+              <li><a href="index.html">Login</a></li>
+              <li><a href="practice.html">Practice</a></li>
+              <li><a href="progress.html">Progress</a></li>
+            </menu>
+        </nav>
+      </div>
+      <hr />
+    </header>
+    <main>
+      <div class="container">
+        <img src="https://media.architecturaldigest.com/photos/58f62c148bfbf566da78abef/16:9/w_2240,c_limit/Finland.jpg" width="100%">
+        <div class="text-block">
+          <h2>Login Here</h2>
+          <div class="login">
+            <form method="get" action="practice.html">
+              <label for="name">Name:</label>
+              <input type="text" class="placeholder" id="name" placeholder="Enter your name" />
+              <button type="submit" class="button">Login</button>
+            </form>
+          </div>
+        </div> 
+      </div>
+    </main>
+    <footer>
+      <hr />
+      <div class="footer-nav">   
+        <p>Author's name: Myriam Anderson</p>
+        <a href="https://github.com/myriambyu/startup.git">GitHub</a>
+      </div>
+    </footer>
+  </body>
+</html>
+~~~
+**MY CSS**
+~~~
+body {
+  display: flex;
+  flex-direction:column;
+  background-color: #CC7A56;
+  color: white;
+  min-width: 300px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+header {
+  flex: 0, 75px;
+}
+main {
+  flex: 1 calc(90vh - 110px);
+  display: flex;
+  flex-direction: column;
+}
+footer {
+  flex: 0, 50px;
+}
+.footer-nav a {
+  text-decoration: none;
+  color:#3f5a36;
+  font-size: 1.5vw;
+}
+.top-bar {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+menu {
+  padding-left: 80px;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  align-items: center;
+  gap: 3.5em;
+  font-size: 1.5vw;
+  justify-content: center;
+}
+.row {
+    display: flex;
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  .column {
+    flex: 33.33%;
+    padding: 10px;
+    text-align: center;
+    font-size: 30px;
+    color: black;
+  }
+  nav a {
+    text-decoration: none;
+    color: #3f5a36;
+  }
+  img {
+    border-radius: 10px;
+  }
+  .users {
+    text-align: right;
+    font-size: 1.2vw;
+    display: flex;
+    position: absolute;
+    right: 1%;
+  }
+  h1 {
+    font-size: 3vw;
+  }
+  .quote {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+    padding-bottom: 20px;
+    padding-top: 10px;
+  }
+  h3 {
+    font-size: 1.5vw;
+  }
+  p {
+    font-size: 1.4vw;
+  }
+  .footer-nav {
+    display: flex;
+    flex-direction: row;
+    gap: 3em;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  .button {
+  background-color:#3f5a36;
+  color: white;
+  border-radius: 5px;
+  border-style: none;
+  height: 40px;
+  padding: 0px 15px 3px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size:large;
+  }
+  .button:hover {
+    border: 1px solid white;
+  }
+  .placeholder {
+    height: 39px;
+    padding: 0px;
+    border-radius: 5px;
+    border-style: none;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    padding-left: 5px;
+    margin-left: 5px;
+    margin-right: 10px;
+    
+  }
+  .container {
+    align-items: center;
+
+  }
+  .login {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  h2 {
+    font-size: 2vw;
+  }
+  .total {
+    height: 30px;
+    width: 30px;
+    padding: 0px;
+    border-radius: 5px;
+    border-style: none;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    margin-left: 5px;
+    margin-right: 10px;
+    justify-content: center;
+    text-align: center;
+  }
+  .practice {
+    text-decoration: none;
+    background-color:#3f5a36;
+    color: white;
+    border-radius: 5px;
+    border-style: none;
+    height: 40px;
+    padding: 0px 15px 3px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size:large;
+  }
+  .practice:hover {
+    border: 1px solid white;
+  }
+  .practice a {
+    text-decoration: none;
+    color: white;
+  }
+  .column a {
+    text-decoration: none;
+    color:#3f5a36;
+  }
+ progress {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 10px;
+ }
+ 
+ table {
+  width: 99%;
+  border: 1px solid;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+
+ }
+ table, td {
+  padding: 25px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+ }
+ .progress {
+  padding: 10px;
+ }
+ td {
+  width: 30%;
+ }
+ tr {
+  width: 30%;
+ }
+ .round {
+  background-color:#3f5a36;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  height: 20px;
+  justify-content: center;
+ }
+ main a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+ }
+ .flash-content {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  width: 90%;
+  height: 80%;
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
+ }
+ .card {
+  padding: 200px;
+  background-color: white;
+  color:#3f5a36;
+  text-align: center;
+  font-size: 3vw;
+  margin-bottom: 10px;
+ }
+ .flashcard {
+  text-align: center;
+ }
+ .see {
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+  cursor: pointer;
+	outline: inherit;
+ }
+ @media (max-height: 600px) {
+  header {
+    display: none;
+  }
+  footer {
+    display: none;
+  }
+  main {
+    flex: 1 100vh;
+  }
+  
+}
+@media (max-width: 900px) {
+  .card {
+    padding:100px;
+  }
+  table {
+    width: 100px;
+  }
+  .row {
+    flex-direction: column;
+    align-items: center;
+  }
+  .column {
+    width: 400px;
+  }
+}
+~~~
+
 
