@@ -220,6 +220,11 @@ menu {
   justify-content: center;
   align-items: center;
  }
+ h4 {
+  color:#3f5a36;
+  font-size: 3vw;
+  font-weight: normal;
+ }
  #vocab {
   height: 480px;
   width: 600px;

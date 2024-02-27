@@ -9,12 +9,14 @@ const back = document.querySelector(".back");
 const next = document.querySelector("#next");
 const prev = document.querySelector("#prev");
 const words = [
-  { finnish: "What is the capital of France?", english: "Paris" },
-  { finnish: "What is 2 + 2?", english: "4" },
-  { finnish: "Who wrote 'Romeo and Juliet'?", english: "William Shakespeare" }];
+  { finnish: "oppia", english: "to learn" },
+  { finnish: "kärsivällinen", english: "patient" },
+  { finnish: "onnellinen", english: "happy" }];
 
 let current = 0;
 let turned = false;
+
+words.fontSize
 
 function resetCard() {
   prev.disabled = false;
@@ -24,8 +26,8 @@ function resetCard() {
 
 function populateNextCard() {
   resetCard();
-  front.innerHTML = `<p>${words[current].finnish}</p>`;
-  back.innerHTML = `<p>${words[current].english}</p>`;
+  front.innerHTML = `<h4>${words[current].finnish}</h4>`;
+  back.innerHTML = `<h4>${words[current].english}</h4>`;
   current++;
 }
 function getNextCard() {
@@ -38,8 +40,8 @@ function getNextCard() {
 function getPrevCard() {
   if (current > 1) {
     resetCard();
-    front.innerHTML = `<p>${words[current - 2].finnish}</p>`;
-    back.innerHTML = `<p>${words[current - 2].english}</p>`;
+    front.innerHTML = `<h4>${words[current - 2].finnish}</h4>`;
+    back.innerHTML = `<h4>${words[current - 2].english}</h4>`;
     current--;
   } else {
     prev.disabled = true;
