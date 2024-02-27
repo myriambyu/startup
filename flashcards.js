@@ -45,3 +45,14 @@ function getPrevCard() {
     prev.disabled = true;
   }
 }
+function flip(e) {
+  turned = !turned;
+  if (turned) {
+    this.classList.add("turned");
+  } else {
+    this.classList.remove("turned");
+  }
+}
+
+
+card.addEventListener("click", flip);

@@ -27,7 +27,7 @@
         </header>
         <main>
             <div class="flash-content">
-                <button id ="prev" class="round">&#8249;</button>
+                <button id ="prev" onclick="getPrevCard()" class="round">&#8249;</button>
                 <button type="less" class="see">See less</button>
                 <div class="flashcard">
                     <div id="vocab" class="card">
@@ -37,7 +37,7 @@
                     <button type="flip" onclick="populateNextCard()" class="button"> Translation </button>
                 </div>
                 <button type="more" class="see">See more</button>
-                <button id="next" class="round">&#8250;</button>
+                <button id="next" onclick="getNextCard()" class="round">&#8250;</button>
             </div>
         </main>
         <footer>
