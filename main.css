@@ -219,14 +219,55 @@ menu {
   justify-content: center;
   align-items: center;
  }
- .card {
+ #vocab {
   padding: 200px;
   background-color: white;
   color:#3f5a36;
   text-align: center;
   font-size: 3vw;
   margin-bottom: 10px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
  }
+ 
+.side {
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.front {
+  display: flex;
+  transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  transform-style: preserve-3d;
+  opacity: 1;
+  transition: all 0.75s linear;
+}
+
+#vocab.turned > .front {
+  opacity: 0;
+  transform: rotateX(180deg) rotateY(0deg) rotateZ(0deg);
+}
+
+.back {
+  position: absolute;
+  left: 0;
+  display: flex;
+  transform: rotateX(180deg) rotateY(0deg) rotateZ(0deg);
+  transform-style: preserve-3d;
+  opacity: 0;
+  transition: all 0.75s linear;
+}
+
+#vocab.turned > .back {
+  opacity: 1;
+  transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+}
+
+
  .flashcard {
   text-align: center;
  }
