@@ -1,8 +1,4 @@
-function DisplayUserName () {
-    const playerName = document.querySelector('.User-name');
-    playerName.textContent = this.getPlayerName();
-
-    getPlayerName() {
-        return localStorage.getItem('userName') ?? 'Unknown';
-    }   
-}
+document.addEventListener("DOMContentLoaded", function() {
+    const storedUsername = localStorage.getItem("username");
+    document.getElementById("loggedInUsername").textContent = storedUsername; 
+  });
