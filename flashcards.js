@@ -11,7 +11,9 @@ const prev = document.querySelector("#prev");
 const words = [
   { finnish: "oppia", english: "to learn" },
   { finnish: "kärsivällinen", english: "patient" },
-  { finnish: "onnellinen", english: "happy" }];
+  { finnish: "onnellinen", english: "happy" },
+  { finnish: "syödä", english: "to eat"},
+  { finnish: "mansikka", english: "strawberry"}];
 
 let current = 0;
 let turned = false;
@@ -58,3 +60,4 @@ function flip(e) {
 
 
 card.addEventListener("click", flip);
+
