@@ -28,3 +28,10 @@ function populateNextCard() {
   back.innerHTML = `<p>${questions[current].answer}</p>`;
   current++;
 }
+function getNextCard() {
+  if (current < questions.length) {
+    populateNextCard();
+  } else {
+    next.disabled = true;
+  }
+}
