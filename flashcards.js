@@ -35,3 +35,13 @@ function getNextCard() {
     next.disabled = true;
   }
 }
+function getPrevCard() {
+  if (current > 1) {
+    resetCard();
+    front.innerHTML = `<p>${questions[current - 2].question}</p>`;
+    back.innerHTML = `<p>${questions[current - 2].answer}</p>`;
+    current--;
+  } else {
+    prev.disabled = true;
+  }
+}
