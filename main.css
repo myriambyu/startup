@@ -221,7 +221,8 @@ menu {
   align-items: center;
  }
  #vocab {
-  padding: 200px;
+  height: 480px;
+  width: 600px;
   background-color: white;
   color:#3f5a36;
   text-align: center;
@@ -231,6 +232,7 @@ menu {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
  }
  
 .side {

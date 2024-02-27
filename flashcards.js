@@ -8,10 +8,10 @@ const front = document.querySelector(".front");
 const back = document.querySelector(".back");
 const next = document.querySelector("#next");
 const prev = document.querySelector("#prev");
-const questions = [
-  { question: "What is the capital of France?", answer: "Paris" },
-  { question: "What is 2 + 2?", answer: "4" },
-  { question: "Who wrote 'Romeo and Juliet'?", answer: "William Shakespeare" }];
+const words = [
+  { finnish: "What is the capital of France?", english: "Paris" },
+  { finnish: "What is 2 + 2?", english: "4" },
+  { finnish: "Who wrote 'Romeo and Juliet'?", english: "William Shakespeare" }];
 
 let current = 0;
 let turned = false;
@@ -24,12 +24,12 @@ function resetCard() {
 
 function populateNextCard() {
   resetCard();
-  front.innerHTML = `<p>${questions[current].question}</p>`;
-  back.innerHTML = `<p>${questions[current].answer}</p>`;
+  front.innerHTML = `<p>${words[current].finnish}</p>`;
+  back.innerHTML = `<p>${words[current].english}</p>`;
   current++;
 }
 function getNextCard() {
-  if (current < questions.length) {
+  if (current < words.length) {
     populateNextCard();
   } else {
     next.disabled = true;
@@ -38,8 +38,8 @@ function getNextCard() {
 function getPrevCard() {
   if (current > 1) {
     resetCard();
-    front.innerHTML = `<p>${questions[current - 2].question}</p>`;
-    back.innerHTML = `<p>${questions[current - 2].answer}</p>`;
+    front.innerHTML = `<p>${words[current - 2].finnish}</p>`;
+    back.innerHTML = `<p>${words[current - 2].english}</p>`;
     current--;
   } else {
     prev.disabled = true;
