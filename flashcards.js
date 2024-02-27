@@ -31,6 +31,7 @@ function populateNextCard() {
   front.innerHTML = `<h4>${words[current].finnish}</h4>`;
   back.innerHTML = `<h4>${words[current].english}</h4>`;
   current++;
+  localStorage.setItem("storedProgress", current);
 }
 function getNextCard() {
   if (current < words.length) {
