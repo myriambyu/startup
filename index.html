@@ -26,13 +26,22 @@
         <img src="https://media.architecturaldigest.com/photos/58f62c148bfbf566da78abef/16:9/w_2240,c_limit/Finland.jpg" width="100%">
         <div class="text-block">
           <h2>Login Here</h2>
-          <div class="login">
-            <form method="get" action="practice.html">
+          <form id="loginForm">
+            <div class="login">
               <label for="name">Name:</label>
               <input type="text" class="placeholder" id="name" placeholder="Enter your name" />
-              <button type="submit" class="button" oneclick="login()">Login</button>
-            </form>
-          </div>
+              <button type="submit" class="button" onclick="login()">Login</button>
+            </div>
+            <div id="userInfo" style="display: none;">
+              <h3>Welcome <span id="loggedInUsername"></span>!</h3>
+            </div>
+            <h3>Welcome <span id="loggedInUsername"></span>!</h3>
+          </form>
+          <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username"><br><br>
+            <button type="submit">Login</button>
+          </form>
         </div> 
       </div>
     </main>
