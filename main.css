@@ -187,6 +187,11 @@ menu {
  .progress {
   padding: 10px;
  }
+ .alignProgress {
+  display: flex;
+  gap: 1em;
+  
+ }
  td {
   width: 30%;
  }

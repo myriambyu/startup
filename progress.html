@@ -28,15 +28,21 @@
     <hr />
     <main>
         <div class="progress">
-            <label for="progress">Progress of entire course: 25%</label>
-            <progress id="progress" max="100" value="25"></progress>
+            <div class="alignProgress">
+              <label for="progress">Progress of entire course: </label>
+              <div class="percent">25%</div>
+            </div>
+            <progress id="progress" max="100" class="progress-bar" value="25"></progress>
         </div>
         <br>
         <section class="progress-table">
             <table id="table">
               <tr>
                 <td>
-                    <label for="food-progress">Food: 25%&nbsp; </label>
+                  <div class="alignProgress">
+                    <label for="food-progress">Food:&nbsp; </label>
+                    <div class="foodPercent">25%</div>
+                  </div>
                     <progress id="progress-bar" max="100" class="progress-bar"></progress> 
                     
                 </td>
@@ -52,7 +58,10 @@
               </tr>
               <tr>
                 <td>
-                    <label for="colors-progress">Colors: 25%</label>
+                    <div class="alignProgress">
+                      <label for="colors-progress">Colors:&nbsp; </label>
+                      <div class="colorsPercent">25%</div>
+                    </div>
                     <progress id="colors-progress" max="100" class="progress-bar" value="25"></progress>
                 </td>
                 <td>
@@ -67,7 +76,10 @@
               </tr>
               <tr>
                 <td>
-                    <label for="verbs-progress">Verbs: 25% &nbsp;</label>
+                    <div class="alignProgress">
+                      <label for="verbs-progress">Verbs:&nbsp; </label>
+                      <div class="verbsPercent">25%</div>
+                    </div>
                     <progress id="verbs-progress" max="100" class="progress-bar" value="25"></progress>                  
                 </td>
                 <td>
