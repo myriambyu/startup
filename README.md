@@ -71,3 +71,16 @@ Here are the ways I am going to use the required technologies:
 - **Text Content** -The font and basic layout is consistent.
 - **Images** -The images are sized to match the layout of the application.
 
+## JavaScript deliverable
+
+➡️ I used JavaScript to add placeholders for future technology and for now the application works for a single user.
+
+- [x] Prerequisite: Simon JavaScript deployed to your production environment
+- [x] Prerequisite: A link to your GitHub startup repository prominently displayed on your application's home page
+- [x] Prerequisite: Notes in your startup Git repository README.md file documenting what you modified and added with this deliverable. 
+- [x] Prerequisite: At least 10 git commits spread consistently throughout the assignment period.
+- **login** - When you press enter or the login button it takes you to the practice page.
+- **database** - Displays the vocabulary words and their translations on the flashcards page. Currently this is stored and retrieved from local storage in an array, but it will be replaced with the database data later. The total progress is currently stored in a local storage file and is shown on the progress page.
+- **WebSocket** - I used the setInterval function to periodically increase a random "total users mastered" count on the progress page. This will be replaced with WebSocket messages later.
+- **application logic** - The flashcard flips when clicked on and displays the transltion. The next and previous buttons change the content of the flashcard. The progress bar and percentage corresponds to the number of flashcards the user has reached.
+
