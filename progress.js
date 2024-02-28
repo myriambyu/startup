@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-  const countInput = document.getElementById('count');
+  const countInput = document.getElementById('countFood');
   
   function increaseCount() {
       
@@ -44,4 +44,28 @@ document.addEventListener('DOMContentLoaded', function() {
       countInput.value = currentValue;
   }
   setInterval(increaseCount, 5000);
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const countInput = document.getElementById('countColors');
+  
+  function increaseCount() {
+      
+      let currentValue = parseInt(countInput.value);
+      currentValue++;
+      countInput.value = currentValue;
+  }
+  setInterval(increaseCount, 4000);
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const countInput = document.getElementById('countVerbs');
+  
+  function increaseCount() {
+      
+      let currentValue = parseInt(countInput.value);
+      currentValue++;
+      countInput.value = currentValue;
+  }
+  setInterval(increaseCount, 6000);
 });
