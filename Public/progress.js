@@ -1,21 +1,21 @@
 document.addEventListener("DOMContentLoaded", function() {
     const storedUsername = localStorage.getItem("username");
     document.getElementById("loggedInUsername").textContent = storedUsername; 
-      });
+});
 
 
 document.addEventListener("DOMContentLoaded", async function loadProgress() {
-  let const storedProgress = [];
+  let storedProgress = null;
   try {
-    // Get the latest high scores from the service
+    // Get the storedProgress from the service
     const response = await fetch('/api/storedProgress');
     storedProgress = await response.json();
     localStorage.setItem("storedProgress", storedProgress);
- 
-  } catch {
-    // If there was an error then just use the last saved scores
+  } catch (error) {
+    // If there was an error, log it and use the last saved progress
+    console.error('Error fetching storedProgress:', error);
     storedProgress = localStorage.getItem("storedProgress");
-}
+  }
 });
 
 const progressBars = document.querySelectorAll('.progress-bar');
