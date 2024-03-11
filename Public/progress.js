@@ -45,13 +45,10 @@ function displayUsername(data) {
       const user = data[number];
 
       const usernameEl = document.createElement('p');
-      usernameEl.textContent = `Username: ${user.login}`;
+      usernameEl.textContent = `User of the Day: ${user.login}`;
 
       containerEl.appendChild(usernameEl);
     })
-    .catch(error => {
-      console.error('Error fetching users:', error);
-    });
 }
 
 displayUsername();
