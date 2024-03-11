@@ -32,6 +32,20 @@ function populateNextCard() {
   back.innerHTML = `<h4>${words[current].english}</h4>`;
   current++;
   localStorage.setItem("storedProgress", current);
+  fetch('/api/storedProgress', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(current)
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Stored progress updated:', data);
+  })
+  .catch(error => {
+    console.error('Error updating stored progress:', error);
+  });
 }
 function getNextCard() {
   if (current < words.length) {
