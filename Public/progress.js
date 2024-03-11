@@ -23,7 +23,21 @@ document.addEventListener("DOMContentLoaded", async function() {
   percentElements.forEach(percentElement => {
     percentElement.textContent = (storedProgress * 20) + "%";
   });
+  const percentFood = document.querySelector('.foodPercent');
+
+  percentFood.textContent = 20 * storedProgress + "%";
+
+  const percentColors = document.querySelector('.colorsPercent');
+
+  percentColors.textContent = 20 * storedProgress + "%";
+
+  const percentVerbs = document.querySelector('.verbsPercent');
+
+  percentVerbs.textContent = 20 * storedProgress + "%";
 });
+
+
+
 
 document.addEventListener('DOMContentLoaded', function() {
   const countInput = document.getElementById('countFood');
