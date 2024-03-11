@@ -3,8 +3,20 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("loggedInUsername").textContent = storedUsername; 
       });
 
-const storedProgress = localStorage.getItem("storedProgress");
 
+document.addEventListener("DOMContentLoaded", async function loadProgress() {
+  let const storedProgress = [];
+  try {
+    // Get the latest high scores from the service
+    const response = await fetch('/api/storedProgress');
+    storedProgress = await response.json();
+    localStorage.setItem("storedProgress", storedProgress);
+ 
+  } catch {
+    // If there was an error then just use the last saved scores
+    storedProgress = localStorage.getItem("storedProgress");
+}
+});
 
 const progressBars = document.querySelectorAll('.progress-bar');
 

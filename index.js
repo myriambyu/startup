@@ -17,6 +17,22 @@ app.use((_req, res) => {
   res.sendFile('index.html', { root: 'public' });
 });
 
+apiRouter.get('/storedProgress', (_req, res) => {
+    res.send(storedProgress);
+});
+  
+
+  // SubmitProgress
+apiRouter.post('/storedProgress', (req, res) => {
+    storedProgress = updateScores(req.body, storedProgress);
+    res.send(storedProgress);
+});
+
+app.use((_req, res) => {
+    res.sendFile('index.html', { root: 'public' });
+  });
+  
+
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
