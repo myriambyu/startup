@@ -24,7 +24,8 @@ apiRouter.get('/storedProgress', (_req, res) => {
 
   // SubmitProgress
 apiRouter.post('/storedProgress', (req, res) => {
-    storedProgress = updateProgress(req.body);
+    const newScore = req.body;
+    storedProgress = updateProgress(newScore);
     res.send(storedProgress);
 });
 
@@ -37,7 +38,6 @@ app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
 
-let storedProgress = null;
 
 function updateProgress(newScore) {
   if (storedProgress === null || newScore > storedProgress) {
