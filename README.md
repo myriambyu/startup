@@ -84,3 +84,16 @@ Here are the ways I am going to use the required technologies:
 - **WebSocket** - I used the setInterval function to periodically increase a random "total users mastered" count on the progress page. This will be replaced with WebSocket messages later.
 - **application logic** - The flashcard flips when clicked on and displays the transltion. The next and previous buttons change the content of the flashcard. The progress bar and percentage corresponds to the number of flashcards the user has reached.
 
+## Service deliverable
+
+➡️ Below is an example of the information required for the Startup Service deliverable.
+
+- [x] Prerequisite: Simon JavaScript deployed to your production environment
+- [x] Prerequisite: A link to your GitHub startup repository prominently displayed on your application's home page
+- [x] Prerequisite: Notes in your startup Git repository README.md file documenting what you modified and added with this deliverable. 
+- [x] Prerequisite: At least 10 git commits spread consistently throughout the assignment period.
+- **Service** - I created an HTTP service using Node.js and Express.
+- **Middleware** - Frontend is served up using Express static middleware. 
+- **Third Party Endpoints** - My frontend calls third party service endpoints on the progress page by displaying a user of the day. 
+- **Backend Endpoints** - My backend provides service endpoints. It gets progress information from the flashcards page, sends it to the backend, and then returns the updated progress.
+- **Frontend Endpoints** - My frontend calls my service endpoints using fetch and displays the result on the progress page.
