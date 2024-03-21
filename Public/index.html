@@ -32,10 +32,10 @@
         <img src="https://media.architecturaldigest.com/photos/58f62c148bfbf566da78abef/16:9/w_2240,c_limit/Finland.jpg" width="100%">
         <div class="text-block">
           <h2>Login Here</h2>
-          <div id="loginControls">
+          <div id="loginControls" style="display: none">
             <div class="input-group mb-3">
               <span class="input-group-text">@</span>
-              <input class="form-control" type="text" id="userName" placeholder="your@email.com" />
+              <input class="form-control" type="text" id="username" placeholder="your@email.com" />
             </div>
             <div class="input-group mb-3">
               <span class="input-group-text">🔒</span>
@@ -46,7 +46,7 @@
           </div>
           <!-- Displayed when ready to play -->
           <div id="playControls" style="display: none">
-            <div id="playerName"></div>
+            <div id="username"></div>
             <button type="button" class="btn btn-primary" onclick="play()">Practice</button>
             <button type="button" class="btn btn-secondary" onclick="logout()">Logout</button>
           </div>
