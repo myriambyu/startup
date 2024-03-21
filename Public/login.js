@@ -48,12 +48,26 @@ async function loginOrCreate(endpoint) {
   }
 }
 
+function practice() {
+  window.location.href = 'practice.html';
+}
 
-  document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("loginForm").addEventListener("submit", function login(event) {
-      event.preventDefault();
-      const username = document.getElementById("username").value;
-      localStorage.setItem("username", username);
-      window.location.href = "practice.html";
-    });
-  });
+function logout() {
+  localStorage.removeItem('username');
+  fetch(`/api/auth/logout`, {
+    method: 'delete',
+  }).then(() => (window.location.href = '/'));
+}
+
+async function getUser(email) {
+  let scores = [];
+  // See if we have a user with the given email.
+  const response = await fetch(`/api/user/${email}`);
+  if (response.status === 200) {
+    return response.json();
+  }
+
+  return null;
+}
+
+
