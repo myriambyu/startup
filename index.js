@@ -77,17 +77,32 @@ secureApiRouter.use(async (req, res, next) => {
   }
 });
 
-secureApiRouter.get('/progress', async (req, res) => {
+secureApiRouter.get('/storedProgress', async (req, res) => {
   const usersMastered = await DB.getUsersMastered();
   res.send(usersMastered);
 });
 
 // SubmitUsersMastered
-secureApiRouter.post('/progress', async (req, res) => {
-  const progress = { ...req.body, ip: req.ip };
-  await DB.updateProgress(progress);
+secureApiRouter.post('/storedProgress', async (req, res) => {
+  const storedProgress = { ...req.body, ip: req.ip };
+  await DB.updateProgress(storedProgress);
   const usersMastered = await DB.getUsersMastered();
   res.send(usersMastered);
+});
+
+
+
+// POST endpoint to submit progress
+secureApiRouter.post('/progress', async (req, res) => {
+  try {
+    const progress = { ...req.body, ip: req.ip }; // Assuming req.ip gives client's IP
+    await DB.updateProgress(progress);
+    const usersMastered = await DB.getUsersMastered();
+    res.send(usersMastered);
+  } catch (error) {
+    console.error("Error updating progress:", error);
+    res.status(500).send("Internal Server Error");
+  }
 });
 
 // Default error handler
@@ -100,6 +115,21 @@ app.use((_req, res) => {
   res.sendFile('index.html', { root: 'public' });
 });
 
+function setAuthCookie(res, authToken) {
+  res.cookie(authCookieName, authToken, {
+    secure: true,
+    httpOnly: true,
+    sameSite: 'strict',
+  });
+}
+
+app.listen(port, () => {
+  console.log(`Listening on port ${port}`);
+});
+
+
+
+
 apiRouter.get('/storedProgress', (_req, res) => {
     res.send(storedProgress);
 });
@@ -110,15 +140,6 @@ apiRouter.post('/storedProgress', (req, res) => {
     const newScore = req.body;
     storedProgress = updateProgress(newScore);
     res.send(storedProgress);
-});
-
-app.use((_req, res) => {
-    res.sendFile('index.html', { root: 'public' });
-  });
-  
-
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
 });
 
 
