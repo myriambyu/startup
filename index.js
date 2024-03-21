@@ -78,31 +78,15 @@ secureApiRouter.use(async (req, res, next) => {
 });
 
 secureApiRouter.get('/storedProgress', async (req, res) => {
-  const usersMastered = await DB.getUsersMastered();
-  res.send(usersMastered);
+  const storedProgress = await DB.updateProgress();
+  res.send(storedProgress);
 });
 
-// SubmitUsersMastered
+// SubmitProgress
 secureApiRouter.post('/storedProgress', async (req, res) => {
   const storedProgress = { ...req.body, ip: req.ip };
   await DB.updateProgress(storedProgress);
-  const usersMastered = await DB.getUsersMastered();
-  res.send(usersMastered);
-});
-
-
-
-// POST endpoint to submit progress
-secureApiRouter.post('/progress', async (req, res) => {
-  try {
-    const progress = { ...req.body, ip: req.ip }; // Assuming req.ip gives client's IP
-    await DB.updateProgress(progress);
-    const usersMastered = await DB.getUsersMastered();
-    res.send(usersMastered);
-  } catch (error) {
-    console.error("Error updating progress:", error);
-    res.status(500).send("Internal Server Error");
-  }
+  res.send(storedProgress);
 });
 
 // Default error handler
@@ -127,27 +111,4 @@ app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
 
-
-
-
-apiRouter.get('/storedProgress', (_req, res) => {
-    res.send(storedProgress);
-});
-  
-
-  // SubmitProgress
-apiRouter.post('/storedProgress', (req, res) => {
-    const newScore = req.body;
-    storedProgress = updateProgress(newScore);
-    res.send(storedProgress);
-});
-
-
-function updateProgress(newScore) {
-  if (storedProgress === null || newScore > storedProgress) {
-    storedProgress = newScore;
-  }
-  
-  return storedProgress;
-}
 
