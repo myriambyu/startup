@@ -77,6 +77,24 @@ secureApiRouter.use(async (req, res, next) => {
   }
 });
 
+secureApiRouter.get('/progress', async (req, res) => {
+  const usersMastered = await DB.getUsersMastered();
+  res.send(usersMastered);
+});
+
+// SubmitUsersMastered
+secureApiRouter.post('/progress', async (req, res) => {
+  const progress = { ...req.body, ip: req.ip };
+  await DB.updateProgress(progress);
+  const usersMastered = await DB.getUsersMastered();
+  res.send(usersMastered);
+});
+
+// Default error handler
+app.use(function (err, req, res, next) {
+  res.status(500).send({ type: err.name, message: err.message });
+});
+
 // Return the application's default page if the path is unknown
 app.use((_req, res) => {
   res.sendFile('index.html', { root: 'public' });
