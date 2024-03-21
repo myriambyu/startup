@@ -7,7 +7,7 @@ const url = `mongodb+srv://cs260:cs260password@cluster0.89fwerh.mongodb.net/star
 const client = new MongoClient(url);
 const db = client.db('startup');
 const userCollection = db.collection('user');
-const scoreCollection = db.collection('progress');
+const progressCollection = db.collection('progress');
 
 // This will asynchronously test the connection and exit the process if it fails
 (async function testConnection() {
@@ -38,4 +38,22 @@ async function createUser(email, password) {
 
   return user;
 }
+
+function updateProgress(progress) {
+  progressCollection.insertOne(progress);
+}
+
+async function getUsersMastered() {
+  const query = { progress: 100 }; // Adjusted query to find users with progress equal to 100
+  const count = await progressCollection.countDocuments(query);
+  return count;
+}
+
+module.exports = {
+  getUser,
+  getUserByToken,
+  createUser,
+  updateProgress,
+  getUsersMastered,
+};
 
