@@ -26,27 +26,27 @@ function resetCard() {
   card.classList.remove("turned");
 }
 
+getUsername() {
+  return localStorage.getItem('username');
+}
+
 function populateNextCard() {
   resetCard();
   front.innerHTML = `<h4>${words[current].finnish}</h4>`;
   back.innerHTML = `<h4>${words[current].english}</h4>`;
   current++;
   localStorage.setItem("storedProgress", current);
-  fetch('/api/storedProgress', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(current)
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log('Stored progress updated:', data);
-  })
-  .catch(error => {
-    console.error('Error updating stored progress:', error);
-  });
+  const username = this.getPlayerName();
+  const newScore = {name: username, storedProgress: storedProgress};
+  try {
+    const response = await fetch('/api/storedProgress', {
+      method: 'POST',
+      headers: {'content-type': 'application/json'},
+      body: JSON.stringify(newScore),
+    });
+  } 
 }
+
 function getNextCard() {
   if (current < words.length) {
     populateNextCard();
