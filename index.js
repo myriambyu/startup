@@ -86,7 +86,6 @@ secureApiRouter.get('/storedProgress', async (req, res) => {
 secureApiRouter.post('/storedProgress', async (req, res) => {
   const storedProgress = { ...req.body, ip: req.ip };
   await DB.updateProgress(storedProgress);
-  res.send(storedProgress);
 });
 
 // Default error handler

@@ -26,25 +26,24 @@ function resetCard() {
   card.classList.remove("turned");
 }
 
-getUsername() {
-  return localStorage.getItem('username');
-}
 
-function populateNextCard() {
+
+async function populateNextCard() {
   resetCard();
   front.innerHTML = `<h4>${words[current].finnish}</h4>`;
   back.innerHTML = `<h4>${words[current].english}</h4>`;
   current++;
   localStorage.setItem("storedProgress", current);
-  const username = this.getPlayerName();
-  const newScore = {name: username, storedProgress: storedProgress};
-  try {
-    const response = await fetch('/api/storedProgress', {
+  const username = localStorage.getItem('username');
+  const newScore = {name: username, storedProgress: current};
+  await fetch('/api/storedProgress', {
       method: 'POST',
       headers: {'content-type': 'application/json'},
       body: JSON.stringify(newScore),
     });
-  } 
+  const progressCollection = await response.json();
+  localStorage.setItem('progressCollection', JSON.stringify(progressCollection));
+   
 }
 
 function getNextCard() {

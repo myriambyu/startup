@@ -39,18 +39,8 @@ async function createUser(email, password) {
   return user;
 }
 
-async function updateProgress(storedProgress) {
-  const existingProgress = await progressCollection.findOne({ userId: storedProgress.userId });
-
-  if (!existingProgress || storedProgress.progress > existingProgress.progress) {
-    await progressCollection.updateOne(
-      { userId: storedProgress.userId },
-      { $set: { progress: storedProgress.progress } },
-      { upsert: true }
-    );
-  }
-
-  return storedProgress.progress;
+function updateProgress(storedProgress) {
+  progressCollection.insertOne(storedProgress);
 }
 
 
