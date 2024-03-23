@@ -1,19 +1,20 @@
 document.addEventListener("DOMContentLoaded", async function() {
-  const storedUsername = localStorage.getItem("username");
+  const storedUsername = 
   document.getElementById("loggedInUsername").textContent = storedUsername; 
-
+  
   let storedProgress = null;
   try {
-
-    const response = await fetch('/highestStoredProgress');
+    const userEmail = localStorage.getItem("username"); 
+    const response = await fetch(`/api/highestStoredProgress/`);
     storedProgress = await response.json();
     localStorage.setItem("storedProgress", storedProgress);
+
   } catch (error) {
-  
     console.error('Error fetching storedProgress:', error);
     storedProgress = localStorage.getItem("storedProgress");
+    console.log ("error etching stored progress");
   }
-
+  
   const progressBars = document.querySelectorAll('.progress-bar');
   progressBars.forEach(progressBar => {
     progressBar.value = storedProgress * 20;
@@ -90,4 +91,5 @@ document.addEventListener('DOMContentLoaded', function() {
       countInput.value = currentValue;
   }
   setInterval(increaseCount, 6000);
-});
+}); 
+

@@ -44,21 +44,22 @@ function updateProgress(storedProgress) {
 }
 
 async function getHighestProgress(username) {
-  try {
-      const highestProgress = await progressCollection.aggregate([
-          { $match: { name: username } }, 
-          { $group: { _id: null, maxProgress: { $max: "$storedProgress" } } } 
-      ]).toArray();
-
-      if (highestProgress.length > 0) {
-          return highestProgress[0].maxProgress;
-      } else {
-          return 0; 
+  const pipeline = [
+    {
+      $match: {
+        name: username // Filtering documents for the specified username
       }
-  } catch (error) {
-      console.error('Error fetching highest stored progress:', error);
-      return null; 
-  }
+    },
+    {
+      $group: {
+        _id: null,
+        highestProgress: { $max: "$storedProgress" } // Finding the maximum progress for the specified user
+      }
+    }
+  ];
+
+  const result = await progressCollection.aggregate(pipeline).toArray();
+  return result.length > 0 ? result[0].highestProgress : null;
 }
 
 async function getUsersMastered() {

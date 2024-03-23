@@ -26,8 +26,6 @@ function resetCard() {
   card.classList.remove("turned");
 }
 
-
-
 async function populateNextCard() {
   resetCard();
   front.innerHTML = `<h4>${words[current].finnish}</h4>`;
@@ -35,16 +33,29 @@ async function populateNextCard() {
   current++;
   localStorage.setItem("storedProgress", current);
   const username = localStorage.getItem('username');
-  const newScore = {name: username, storedProgress: current};
-  await fetch('/api/storedProgress', {
-      method: 'POST',
-      headers: {'content-type': 'application/json'},
-      body: JSON.stringify(newScore),
-    });
-  const progressCollection = await response.json();
-  localStorage.setItem('progressCollection', JSON.stringify(progressCollection));
-   
+  const newScore = { name: username, storedProgress: current };
 }
+  // Fetch data from the server
+  async function populateNextCard() {
+    resetCard();
+    front.innerHTML = `<h4>${words[current].finnish}</h4>`;
+    back.innerHTML = `<h4>${words[current].english}</h4>`;
+    current++;
+    localStorage.setItem("storedProgress", current);
+    const username = localStorage.getItem('username');
+    const newScore = {name: username, storedProgress: current};
+    const response = await fetch('/api/storedProgress', {
+        method: 'POST',
+        headers: {'content-type': 'application/json'},
+        body: JSON.stringify(newScore),
+      });
+    const progressCollection = await response.json();
+    localStorage.setItem('progressCollection', JSON.stringify(progressCollection));
+     
+  }
+  
+  
+
 
 function getNextCard() {
   if (current < words.length) {
