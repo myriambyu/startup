@@ -43,6 +43,23 @@ function updateProgress(storedProgress) {
   progressCollection.insertOne(storedProgress);
 }
 
+async function getHighestProgress(username) {
+  try {
+      const highestProgress = await progressCollection.aggregate([
+          { $match: { name: username } }, 
+          { $group: { _id: null, maxProgress: { $max: "$storedProgress" } } } 
+      ]).toArray();
+
+      if (highestProgress.length > 0) {
+          return highestProgress[0].maxProgress;
+      } else {
+          return 0; 
+      }
+  } catch (error) {
+      console.error('Error fetching highest stored progress:', error);
+      return null; 
+  }
+}
 
 async function getUsersMastered() {
   const query = { storedProgress: 100 }; // Adjusted query to find users with progress equal to 100
@@ -55,6 +72,7 @@ module.exports = {
   getUserByToken,
   createUser,
   updateProgress,
+  getHighestProgress,
   getUsersMastered,
 };
 

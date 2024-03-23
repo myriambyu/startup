@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", async function() {
   let storedProgress = null;
   try {
 
-    const response = await fetch('/api/storedProgress');
+    const response = await fetch('/highestStoredProgress');
     storedProgress = await response.json();
     localStorage.setItem("storedProgress", storedProgress);
   } catch (error) {

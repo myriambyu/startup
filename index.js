@@ -88,6 +88,16 @@ secureApiRouter.post('/storedProgress', async (req, res) => {
   await DB.updateProgress(storedProgress);
 });
 
+secureApiRouter.get('/highestStoredProgress/:username', async (req, res) => {
+  const { username } = req.params;
+  const highestProgress = await DB.getHighestProgress(username);
+  if (highestProgress !== null) {
+    res.json({ highestStoredProgress: highestProgress });
+  } else {
+    res.status(404).json({ error: "User not found or no progress recorded" });
+  }
+});
+
 // Default error handler
 app.use(function (err, req, res, next) {
   res.status(500).send({ type: err.name, message: err.message });
