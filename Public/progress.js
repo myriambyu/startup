@@ -1,42 +1,34 @@
 document.addEventListener("DOMContentLoaded", async function() {
-  const storedUsername = 
+  const storedUsername = localStorage.getItem("username");
   document.getElementById("loggedInUsername").textContent = storedUsername; 
-  
-  let storedProgress = null;
-  try {
-    const userEmail = localStorage.getItem("username"); 
-    const response = await fetch(`/api/highestStoredProgress/`);
-    storedProgress = await response.json();
-    localStorage.setItem("storedProgress", storedProgress);
 
-  } catch (error) {
-    console.error('Error fetching storedProgress:', error);
-    storedProgress = localStorage.getItem("storedProgress");
-    console.log ("error etching stored progress");
-  }
+
   
+    let storedProgress = [];
+    try {
+      // Get the latest high scores from the service
+      const response = await fetch('/api/storedProgress');
+      storedProgress = await response.json;
+    } catch {
+      // If there was an error then just use the last saved scores
+      storedProgress = localStorage.getItem('storedProgress');
+    }
+
   const progressBars = document.querySelectorAll('.progress-bar');
   progressBars.forEach(progressBar => {
     progressBar.value = storedProgress * 20;
   });
-
   const percentElements = document.querySelectorAll('.percent');
   percentElements.forEach(percentElement => {
     percentElement.textContent = (storedProgress * 20) + "%";
   });
   const percentFood = document.querySelector('.foodPercent');
-
   percentFood.textContent = 20 * storedProgress + "%";
-
   const percentColors = document.querySelector('.colorsPercent');
-
   percentColors.textContent = 20 * storedProgress + "%";
-
   const percentVerbs = document.querySelector('.verbsPercent');
-
   percentVerbs.textContent = 20 * storedProgress + "%";
 });
-
 function displayUsername(data) {
   fetch('https://api.github.com/users')
     .then(response => response.json())
@@ -46,17 +38,17 @@ function displayUsername(data) {
       const user = data[number];
 
       const usernameEl = document.createElement('p');
+      usernameEl.textContent = `Username: ${user.login}`;
       usernameEl.textContent = `User of the Day: ${user.login}`;
 
       containerEl.appendChild(usernameEl);
     })
+    .catch(error => {
+      console.error('Error fetching users:', error);
+    });
 }
 
 displayUsername();
-
-
-
-
 document.addEventListener('DOMContentLoaded', function() {
   const countInput = document.getElementById('countFood');
   
@@ -68,7 +60,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   setInterval(increaseCount, 5000);
 });
-
 document.addEventListener('DOMContentLoaded', function() {
   const countInput = document.getElementById('countColors');
   
@@ -80,7 +71,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   setInterval(increaseCount, 4000);
 });
-
 document.addEventListener('DOMContentLoaded', function() {
   const countInput = document.getElementById('countVerbs');
   
@@ -91,5 +81,4 @@ document.addEventListener('DOMContentLoaded', function() {
       countInput.value = currentValue;
   }
   setInterval(increaseCount, 6000);
-}); 
-
+});

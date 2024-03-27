@@ -25,16 +25,6 @@ function resetCard() {
   next.disabled = false;
   card.classList.remove("turned");
 }
-
-async function populateNextCard() {
-  resetCard();
-  front.innerHTML = `<h4>${words[current].finnish}</h4>`;
-  back.innerHTML = `<h4>${words[current].english}</h4>`;
-  current++;
-  localStorage.setItem("storedProgress", current);
-  const username = localStorage.getItem('username');
-  const newScore = { name: username, storedProgress: current };
-}
   // Fetch data from the server
   async function populateNextCard() {
     resetCard();

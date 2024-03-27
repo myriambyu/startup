@@ -78,14 +78,16 @@ secureApiRouter.use(async (req, res, next) => {
 });
 
 secureApiRouter.get('/storedProgress', async (req, res) => {
-  const storedProgress = await DB.updateProgress();
-  res.send(storedProgress);
+  const storedProgress = await DB.getHighestProgress();
+  res.json(storedProgress);
 });
 
 // SubmitProgress
 secureApiRouter.post('/storedProgress', async (req, res) => {
   const storedProgress = { ...req.body, ip: req.ip };
   await DB.updateProgress(storedProgress);
+  const topScore = await DB.updateProgress();
+  res.json(topScore);
 });
 
 secureApiRouter.get('/highestStoredProgress/', async (req, res) => {
@@ -95,6 +97,13 @@ secureApiRouter.get('/highestStoredProgress/', async (req, res) => {
 });
 
 
+function updateProgress(newScore) {
+  if (storedProgress === null || newScore > storedProgress) {
+    storedProgress = newScore;
+  }
+  
+  return storedProgress;
+}
 // Default error handler
 app.use(function (err, req, res, next) {
   res.status(500).send({ type: err.name, message: err.message });

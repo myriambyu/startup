@@ -43,24 +43,22 @@ function updateProgress(storedProgress) {
   progressCollection.insertOne(storedProgress);
 }
 
-async function getHighestProgress(username) {
-  const pipeline = [
-    {
-      $match: {
-        name: username // Filtering documents for the specified username
-      }
-    },
-    {
-      $group: {
-        _id: null,
-        highestProgress: { $max: "$storedProgress" } // Finding the maximum progress for the specified user
-      }
+function getHighestProgress() {
+  const query = { storedProgress: { $gt: 0, $lt: 900 } };
+  const options = {
+    sort: { storedProgress: -1 },
+    limit: 1,
+    project: {
+      _id: 0,
+      name: 0,
+      ip: 0,
+      storedProgress: 1
     }
-  ];
-
-  const result = await progressCollection.aggregate(pipeline).toArray();
-  return result.length > 0 ? result[0].highestProgress : null;
+  };
+  const cursor = progressCollection.find(query, options);
+  return cursor.toArray();
 }
+
 
 async function getUsersMastered() {
   const query = { storedProgress: 100 }; // Adjusted query to find users with progress equal to 100
