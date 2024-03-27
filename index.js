@@ -79,7 +79,7 @@ secureApiRouter.use(async (req, res, next) => {
 
 secureApiRouter.get('/storedProgress', async (req, res) => {
   const storedProgress = await DB.getHighestProgress();
-  res.json(storedProgress);
+  res.send(storedProgress);
 });
 
 // SubmitProgress
@@ -87,7 +87,7 @@ secureApiRouter.post('/storedProgress', async (req, res) => {
   const storedProgress = { ...req.body, ip: req.ip };
   await DB.updateProgress(storedProgress);
   const topScore = await DB.updateProgress();
-  res.json(topScore);
+  res.send(topScore);
 });
 
 secureApiRouter.get('/highestStoredProgress/', async (req, res) => {

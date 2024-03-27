@@ -43,22 +43,16 @@ function updateProgress(storedProgress) {
   progressCollection.insertOne(storedProgress);
 }
 
-function getHighestProgress() {
+
+async function getHighestProgress() {
   const query = { storedProgress: { $gt: 0, $lt: 900 } };
   const options = {
     sort: { storedProgress: -1 },
-    limit: 1,
-    project: {
-      _id: 0,
-      name: 0,
-      ip: 0,
-      storedProgress: 1
-    }
+    limit: 10,
   };
   const cursor = progressCollection.find(query, options);
   return cursor.toArray();
 }
-
 
 async function getUsersMastered() {
   const query = { storedProgress: 100 }; // Adjusted query to find users with progress equal to 100

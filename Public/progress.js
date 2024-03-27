@@ -2,13 +2,27 @@ document.addEventListener("DOMContentLoaded", async function() {
   const storedUsername = localStorage.getItem("username");
   document.getElementById("loggedInUsername").textContent = storedUsername; 
 
-
   
-    let storedProgress = [];
+  
+    let storedProgress = null;
     try {
-      // Get the latest high scores from the service
-      const response = await fetch('/api/storedProgress');
-      storedProgress = await response.json;
+      async function getStoredProgressForUser() {
+        const response = await fetch('/api/storedProgress');
+        const userData = await response.json();
+        return userData;
+      }
+      const username = localStorage.getItem('username');
+      progressCollection = await getStoredProgressForUser();
+      if (userData.length) {
+        // Extract storedProgress values into an array
+        const storedProgressArray = userData.map(progress => progress.storedProgress);
+        
+        // Sort the storedProgressArray from greatest to least
+        storedProgressArray.sort((a, b) => b - a);
+        
+        // Return the biggest number (first element in the sorted array)
+        storedProgress = storedProgressArray[0];
+    }
     } catch {
       // If there was an error then just use the last saved scores
       storedProgress = localStorage.getItem('storedProgress');
