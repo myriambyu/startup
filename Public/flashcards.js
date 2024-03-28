@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("loggedInUsername").textContent = storedUsername; 
   });
 
+const GameEndEvent = 'gameEnd';
 const card = document.querySelector("#vocab");
 const front = document.querySelector(".front");
 const back = document.querySelector(".back");
@@ -39,6 +40,9 @@ function resetCard() {
         headers: {'content-type': 'application/json'},
         body: JSON.stringify(newScore),
       });
+    if (current == 5) {
+      this.broadcastEvent(username, GameEndEvent, newScore);
+    }
     const progressCollection = await response.json();
     localStorage.setItem('progressCollection', JSON.stringify(progressCollection));
      
@@ -75,4 +79,11 @@ function flip(e) {
 
 
 card.addEventListener("click", flip);
+
+displayMsg() {
+  const containerEl = document.querySelector('#masteredUser');
+  const usernameEl = document.createElement('p');
+  usernameEl.textContent = `${username} mastered this set`;
+  containerEl.appendChild(usernameEl);
+}
 
