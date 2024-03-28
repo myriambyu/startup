@@ -62,29 +62,26 @@ function displayUsername(data) {
     });
 }
 
+  displayMsg(upCount) {
+    const countInput = document.getElementById('countFood');
+    countInput.value = upCount;
+  }
+  broadcastEvent(from, type, value) {
+    const event = {
+      from: from,
+      type: type,
+      value: value,
+    };
+    this.socket.send(JSON.stringify(event));
+  }
+
+
 displayUsername();
-document.addEventListener('DOMContentLoaded', function() {
-  const countInput = document.getElementById('countFood');
-  
-  function increaseCount() {
-      
-      let currentValue = parseInt(countInput.value);
-      currentValue++;
-      countInput.value = currentValue;
-  }
-  setInterval(increaseCount, 5000);
-});
-document.addEventListener('DOMContentLoaded', function() {
-  const countInput = document.getElementById('countColors');
-  
-  function increaseCount() {
-      
-      let currentValue = parseInt(countInput.value);
-      currentValue++;
-      countInput.value = currentValue;
-  }
-  setInterval(increaseCount, 4000);
-});
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
   const countInput = document.getElementById('countVerbs');
   
