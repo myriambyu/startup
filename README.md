@@ -97,3 +97,18 @@ Here are the ways I am going to use the required technologies:
 - **Third Party Endpoints** - My frontend calls third party service endpoints on the progress page by displaying a user of the day. 
 - **Backend Endpoints** - My backend provides service endpoints. It gets progress information from the flashcards page, sends it to the backend, and then returns the updated progress.
 - **Frontend Endpoints** - My frontend calls my service endpoints using fetch and displays the result on the progress page.
+
+## Login deliverable
+
+-Below is the information required for the Login/Database deliverable.
+
+- [x] Prerequisite: Simon JavaScript deployed to your production environment
+- [x] Prerequisite: A link to your GitHub startup repository prominently displayed on your application's home page
+- [x] Prerequisite: Notes in your startup Git repository README.md file documenting what you modified and added with this deliverable. 
+- [x] Prerequisite: At least 10 git commits spread consistently throughout the assignment period.
+- **Registration** - Supports new user registration.
+- **Authentication** - Supports existing user authentication. 
+- **DB Data** - Stores application data in MongoDB. Stores the user information and flashcard progress.
+- **DB Credentials** - Stores and retrieves credentials in MongoDB. 
+- **Restriction** - Restricts application functionality based upon authentication. 
+ 
