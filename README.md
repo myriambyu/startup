@@ -112,3 +112,12 @@ Here are the ways I am going to use the required technologies:
 - **DB Credentials** - Stores and retrieves credentials in MongoDB. 
 - **Restriction** - Restricts application functionality based upon authentication. 
  
+## WebSocket deliverable
+
+-Below is the information required for the WebSocket deliverable.
+
+- [x] Prerequisite: Simon JavaScript deployed to your production environment
+- [x] Prerequisite: A link to your GitHub startup repository prominently displayed on your application's home page
+- [x] Prerequisite: Notes in your startup Git repository README.md file documenting what you modified and added with this deliverable. 
+- [x] Prerequisite: At least 10 git commits spread consistently throughout the assignment period.
+- I have the code written, but not deployed to my production enviroment because of my computer disaster. I don't know if there's a possiblility of getting partial credit, but I thought I might as well try!
