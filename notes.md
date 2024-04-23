@@ -1131,322 +1131,419 @@ try {
   console.log(`Toss completed`);
 }
 ~~~
-**MY HTML**
-~~~
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset "UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SuomiPractice HTML</title>
-    <link rel="stylesheet" href="main.css">
-  </head>
-  <body>
-    <header>
-      <div class="top-bar">
-        <h1>Suomi Practice</h1>
-        <nav>
-            <menu>
-              <li><a href="index.html">Login</a></li>
-              <li><a href="practice.html">Practice</a></li>
-              <li><a href="progress.html">Progress</a></li>
-            </menu>
-        </nav>
-      </div>
-      <hr />
-    </header>
-    <main>
-      <div class="container">
-        <img src="https://media.architecturaldigest.com/photos/58f62c148bfbf566da78abef/16:9/w_2240,c_limit/Finland.jpg" width="100%">
-        <div class="text-block">
-          <h2>Login Here</h2>
-          <div class="login">
-            <form method="get" action="practice.html">
-              <label for="name">Name:</label>
-              <input type="text" class="placeholder" id="name" placeholder="Enter your name" />
-              <button type="submit" class="button">Login</button>
-            </form>
-          </div>
-        </div> 
-      </div>
-    </main>
-    <footer>
-      <hr />
-      <div class="footer-nav">   
-        <p>Author's name: Myriam Anderson</p>
-        <a href="https://github.com/myriambyu/startup.git">GitHub</a>
-      </div>
-    </footer>
-  </body>
-</html>
-~~~
-**MY CSS**
-~~~
-body {
-  display: flex;
-  flex-direction:column;
-  background-color: #CC7A56;
-  color: white;
-  min-width: 300px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-}
-header {
-  flex: 0, 75px;
-}
-main {
-  flex: 1 calc(90vh - 110px);
-  display: flex;
-  flex-direction: column;
-}
-footer {
-  flex: 0, 50px;
-}
-.footer-nav a {
-  text-decoration: none;
-  color:#3f5a36;
-  font-size: 1.5vw;
-}
-.top-bar {
-  flex: 1;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-menu {
-  padding-left: 80px;
-  flex: 1;
-  display: flex;
-  flex-direction: row;
-  list-style: none;
-  align-items: center;
-  gap: 3.5em;
-  font-size: 1.5vw;
-  justify-content: center;
-}
-.row {
-    display: flex;
-    background-color: white;
-    color: black;
-    padding: 10px;
-    border-radius: 10px;
-  }
-  
-  .column {
-    flex: 33.33%;
-    padding: 10px;
-    text-align: center;
-    font-size: 30px;
-    color: black;
-  }
-  nav a {
-    text-decoration: none;
-    color: #3f5a36;
-  }
-  img {
-    border-radius: 10px;
-  }
-  .users {
-    text-align: right;
-    font-size: 1.2vw;
-    display: flex;
-    position: absolute;
-    right: 1%;
-  }
-  h1 {
-    font-size: 3vw;
-  }
-  .quote {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 1em;
-    padding-bottom: 20px;
-    padding-top: 10px;
-  }
-  h3 {
-    font-size: 1.5vw;
-  }
-  p {
-    font-size: 1.4vw;
-  }
-  .footer-nav {
-    display: flex;
-    flex-direction: row;
-    gap: 3em;
-    justify-content: center;
-    align-items: center;
-  
-  }
-  .button {
-  background-color:#3f5a36;
-  color: white;
-  border-radius: 5px;
-  border-style: none;
-  height: 40px;
-  padding: 0px 15px 3px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size:large;
-  }
-  .button:hover {
-    border: 1px solid white;
-  }
-  .placeholder {
-    height: 39px;
-    padding: 0px;
-    border-radius: 5px;
-    border-style: none;
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    padding-left: 5px;
-    margin-left: 5px;
-    margin-right: 10px;
-    
-  }
-  .container {
-    align-items: center;
+When one device wants to talk to another it must have an IP address. For example, 128.187.16.184 is BYU's address. Usually, human users prefer a symbolic name over an IP address. The symbolic name is called a domain name. Domain names are converted to IP address by doing a lookup in the Domain Name System (DNS). You can look up the IP address for any domain name using the dig console utility.
+You can determine the hops in a connection using the traceroute console utility.
+The actual sending of data across the internet uses the TCP/IP model. This is a layered architecture that covers everything from the physical wires to the data that a web application sends. At the top of the TCP/IP protocol is the application layer. It represents user functionality, such as the web (HTTP), mail (SMTP), files (FTP), remote shell (SSH), and chat (IRC). Underneath that is the transport layer which breaks the application layer's information into small chunks and sends the data. The actual connection is made using the internet layer. This finds the device you want to talk to and keeps the connection alive. Finally, at the bottom of the model is the link layer which deals with the physical connections and hardware.
 
-  }
-  .login {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
+TCP/IP layers
+Layer	Example	Purpose
+Application	HTTPS	Functionality like web browsing
+Transport	TCP	Moving connection information packets
+Internet	IP	Establishing connections
+Link	Fiber, hardware	Physical connections
 
-  h2 {
-    font-size: 2vw;
-  }
-  .total {
-    height: 30px;
-    width: 30px;
-    padding: 0px;
-    border-radius: 5px;
-    border-style: none;
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    margin-left: 5px;
-    margin-right: 10px;
-    justify-content: center;
-    text-align: center;
-  }
-  .practice {
-    text-decoration: none;
-    background-color:#3f5a36;
-    color: white;
-    border-radius: 5px;
-    border-style: none;
-    height: 40px;
-    padding: 0px 15px 3px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size:large;
-  }
-  .practice:hover {
-    border: 1px solid white;
-  }
-  .practice a {
-    text-decoration: none;
-    color: white;
-  }
-  .column a {
-    text-decoration: none;
-    color:#3f5a36;
-  }
- progress {
-  width: 100%;
-  margin-top: 20px;
-  margin-bottom: 10px;
- }
- 
- table {
-  width: 99%;
-  border: 1px solid;
-  margin: auto;
-  justify-content: center;
-  align-items: center;
+Microservices
+Web services that provide a single functional purpose are referred to as microservices. By partitioning functionality into small logical chunks, you can develop and manage them independently from other functionality in a larger system. They can also handle large fluctuations in user demand by simply running more and more stateless copies of the microservice from multiple virtual servers hosted in a dynamic cloud environment. For example, one microservice for generating your genealogical family tree might be able to handle 1,000 users concurrently. So in order to support 1 million users, you just deploy 1,000 instances of the service running on scalable virtual hardware.
 
- }
- table, td {
-  padding: 25px;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
- }
- .progress {
-  padding: 10px;
- }
- td {
-  width: 30%;
- }
- tr {
-  width: 30%;
- }
- .round {
-  background-color:#3f5a36;
-  color: white;
-  border-radius: 50%;
-  text-align: center;
-  height: 20px;
-  justify-content: center;
- }
- main a {
-  text-decoration: none;
-  display: inline-block;
-  padding: 8px 16px;
- }
- .flash-content {
-  display: flex;
-  flex-direction: row;
-  margin: auto;
-  width: 90%;
-  height: 80%;
-  gap: 1em;
-  justify-content: center;
-  align-items: center;
- }
- .card {
-  padding: 200px;
-  background-color: white;
-  color:#3f5a36;
-  text-align: center;
-  font-size: 3vw;
-  margin-bottom: 10px;
- }
- .flashcard {
-  text-align: center;
- }
- .see {
-  background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-  cursor: pointer;
-	outline: inherit;
- }
- @media (max-height: 600px) {
-  header {
-    display: none;
-  }
-  footer {
-    display: none;
-  }
-  main {
-    flex: 1 100vh;
-  }
-  
-}
-@media (max-width: 900px) {
-  .card {
-    padding:100px;
-  }
-  table {
-    width: 100px;
-  }
-  .row {
-    flex-direction: column;
-    align-items: center;
-  }
-  .column {
-    width: 400px;
-  }
+Serverless
+The idea of microservices naturally evolved into the world of serverless functionality where the server is conceptually removed from the architecture and you just write a function that speaks HTTP. That function is loaded through an gateway that maps a web request to the function. The gateway automatically scales the hardware needed to host the serverless function based on demand. This reduces what the web application developer needs to think about down to a single independent function.
+
+In the instruction about the internet we showed how an IP address can be referenced by a domain name. You can get the IP address for any domain using the dig console utility. Notice that in the following example there are actually multiple IP addresses associated with the domain name amazon.com. This allows for redundancy in case one of the IP addresses fails to successfully resolve to a valid connection because the server listening at that IP address is not responding.
+
+A domain name is simply a text string that follows a specific naming convention and is listed in a special database called the domain name registry.
+
+Domain names are broken up into a root domain, with one or more possible subdomain prefixes. The root domain is represented by a secondary level domain and a top level domain. The top level domain (TLD) represent things like com, edu, or click. So a root domain would look something like byu.edu, google.com, or cs260.click. The possible list of TLDs is controlled by ICANN, one of the governing boards of the internet.
+
+You can get information about a domain name from the domain name registry using the whois console utility.
+
+DNS
+Once a domain name is in the registry it can be listed with a domain name system (DNS) server and associated with an IP address. Of course you must also lease the IP address before you can use it to uniquely identify a device on the internet, but that is a topic for another time. Every DNS server in the world references a few special DNS servers that are considered the authoritative name servers for associating a domain name with an IP address.
+
+The DNS database records that facilitate the mapping of domain names to IP addresses come in several flavors. The main ones we are concerned with are the address (A) and the canonical name (CNAME) records. An A record is a straight mapping from a domain name to IP address. A CNAME record maps one domain name to another domain name. This acts as a domain name alias. You would use a CNAME to do things like map byu.com to the same IP address as byu.edu so that either one could be used.
+
+When you enter a domain name into a browser, the browser first checks to see if it has the name already in its cache of names. If it does not, it contacts a DNS server and gets the IP address. The DNS server also keeps a cache of names. If the domain name is not in the cache, it will request the name from an authoritative name server. If the authority does not know the name then you get an unknown domain name error. If the process does resolve, then the browser makes the HTTP connection to the associated IP address.
+
+As you can see, there is a lot of levels of name caching. This is done for performance reasons, but it also can be frustrating when you are trying to update the information associated with your domain name. This is where the time to live (TTL) setting for a domain record comes into play. You can set this to be something short like 5 minutes or as long as several days. The different caching layers should then honor the TTL and clear their cache after the requested period has passed.
+
+Leasing a domain name
+You can pay to lease an unused domain name for a specific period of time. Before the lease expires, you have the right to extend the lease for an additional amount of time. The cost to buy the domain varies from something like $3 to $200 a year. Buying, or sub-leasing, an existing domain name from a private party can be very expensive, and so you are better off buying something obscure like idigfor.gold (currently available for only $101). This is one reason why companies have such strange names these days.
+
+Refer to the instruction on using Route 53 if you are interested in leasing a domain name.
+
+~~~
+<scheme>://<domain name>:<port>/<path>?<parameters>#<anchor>
+~~~
+Part	Example	Meaning
+Scheme	https	The protocol required to ask for the resource. For web applications, this is usually HTTPS. But it could be any internet protocol such as FTP or MAILTO.
+Domain name	byu.edu	The domain name that owns the resource represented by the URL.
+Port	3000	The port specifies the numbered network port used to connect to the domain server. Lower number ports are reserved for common internet protocols, higher number ports can be used for any purpose. The default port is 80 if the scheme is HTTP, or 443 if the scheme is HTTPS.
+Path	/school/byu/user/8014	The path to the resource on the domain. The resource does not have to physically be located on the file system with this path. It can be a logical path representing endpoint parameters, a database table, or an object schema.
+Parameters	filter=names&highlight=intro,summary	The parameters represent a list of key value pairs. Usually it provides additional qualifiers on the resource represented by the path. This might be a filter on the returned resource or how to highlight the resource. The parameters are also sometimes called the query string.
+Anchor	summary	The anchor usually represents a sub-location in the resource. For HTML pages this represents a request for the browser to automatically scroll to the element with an ID that matches the anchor. The anchor is also sometimes called the hash, or fragment ID.
+Technically you can also provide a user name and password before the domain name. This was used historically to authenticate access, but for security reasons this is deprecated. However, you will still see this convention for URLs that represent database connection strings.
+
+URL, URN, and URI
+You will sometimes hear the use of URN or URI when talking about web resources. A Uniform Resource Name (URN) is a unique resource name that does not specify location information. For example, a book URN might be urn:isbn:10,0765350386. A Uniform Resource Identifier (URI) is a general resource identifier that could refer to either a URL or a URN. With web programming you are almost always talking about URLs and therefore you should not use the more general URI.
+
+Port	Protocol
+20	File Transfer Protocol (FTP) for data transfer
+22	Secure Shell (SSH) for connecting to remote devices
+25	Simple Mail Transfer Protocol (SMTP) for sending email
+53	Domain Name System (DNS) for looking up IP addresses
+80	Hypertext Transfer Protocol (HTTP) for web requests
+110	Post Office Protocol (POP3) for retrieving email
+123	Network Time Protocol (NTP) for managing time
+161	Simple Network Management Protocol (SNMP) for managing network devices such as routers or printers
+194	Internet Relay Chat (IRC) for chatting
+443	HTTP Secure (HTTPS) for secure web requests
+
+GET	Get the requested resource. This can represent a request to get a single resource or a resource representing a list of resources.
+POST	Create a new resource. The body of the request contains the resource. The response should include a unique ID of the newly created resource.
+PUT	Update a resource. Either the URL path, HTTP header, or body must contain the unique ID of the resource being updated. The body of the request should contain the updated resource. The body of the response may contain the resulting updated resource.
+DELETE	Delete a resource. Either the URL path or HTTP header must contain the unique ID of the resource to delete.
+OPTIONS	Get metadata about a resource. Usually only HTTP headers are returned. The resource itself is not returned.
+
+Code	Text	Meaning
+100	Continue	The service is working on the request
+200	Success	The requested resource was found and returned as appropriate.
+201	Created	The request was successful and a new resource was created.
+204	No Content	The request was successful but no resource is returned.
+304	Not Modified	The cached version of the resource is still valid.
+307	Permanent redirect	The resource is no longer at the requested location. The new location is specified in the response location header.
+308	Temporary redirect	The resource is temporarily located at a different location. The temporary location is specified in the response location header.
+400	Bad request	The request was malformed or invalid.
+401	Unauthorized	The request did not provide a valid authentication token.
+403	Forbidden	The provided authentication token is not authorized for the resource.
+404	Not found	An unknown resource was requested.
+408	Request timeout	The request takes too long.
+409	Conflict	The provided resource represents an out of date version of the resource.
+418	I'm a teapot	The service refuses to brew coffee in a teapot.
+429	Too many requests	The client is making too many requests in too short of a time period.
+500	Internal server error	The server failed to properly process the request.
+503	Service unavailable	The server is temporarily down. The client should try again with an exponential back off.
+
+Header	Example	Meaning
+Authorization	Bearer bGciOiJIUzI1NiIsI	A token that authorized the user making the request.
+Accept	image/*	The format the client accepts. This may include wildcards.
+Content-Type	text/html; charset=utf-8	The format of the content being sent. These are described using standard MIME types.
+Cookie	SessionID=39s8cgj34; csrftoken=9dck2	Key value pairs that are generated by the server and stored on the client.
+Host	info.cern.ch	The domain name of the server. This is required in all requests.
+Origin	cs260.click	Identifies the origin that caused the request. A host may only allow requests from specific origins.
+Access-Control-Allow-Origin	https://cs260.click	Server response of what origins can make a request. This may include a wildcard.
+Content-Length	368	The number of bytes contained in the response.
+Cache-Control	public, max-age=604800	Tells the client how it can cache the response.
+User-Agent	Mozilla/5.0 (Macintosh)	The client application making the request.
+
+Body
+The format of the body of an HTTP request or response is defined by the Content-Type header. For example, it may be HTML text (text/html), a binary image format (image/png), JSON (application/json), or JavaScript (text/javascript). A client may specify what formats it accepts using the accept header.
+
+In the previous instruction you saw how to use Node.js to create a simple web server. This works great for little projects where you are trying to quickly serve up some web content, but to build a production-ready application you need a framework with a bit more functionality for easily implementing a full web service. This is where the Node package Express come in. Express provides support for:
+
+Routing requests for service endpoints
+Manipulating HTTP requests with JSON body content
+Generating HTTP responses
+Using middleware to add functionality
+
+HTTP endpoints are implemented in Express by defining routes that call a function based upon an HTTP path. The Express app object supports all of the HTTP verbs as functions on the object. For example, if you want to have a route function that handles an HTTP GET request for the URL path /store/provo you would call the get method on the app.
+
+app.get('/store/provo', (req, res, next) => {
+  res.send({name: 'provo'});
+});
+The get function takes two parameters, a URL path matching pattern, and a callback function that is invoked when the pattern matches. The path matching parameter is used to match against the URL path of an incoming HTTP request.
+
+The callback function has three parameters that represent the HTTP request object (req), the HTTP response object (res), and the next routing function that Express expects to be called if this routing function wants another function to generate a response.
+
+The Express app compares the routing function patterns in the order that they are added to the Express app object. So if you have two routing functions with patterns that both match, the first one that was added will be called and given the next matching function in the next parameter.
+
+In our example above we hard coded the store name to be provo. A real store endpoint would allow any store name to be provided as a parameter in the path. Express supports path parameters by prefixing the parameter name with a colon (:). Express creates a map of path parameters and populates it with the matching values found in the URL path. You then reference the parameters using the req.params object. Using this pattern you can rewrite our getStore endpoint as follows.
+
+Backend code
+In order to build storage support into our server, we first install the Multer NPM package to our project. There are other NPM packages that we can chose from, but Multer is commonly used. From your project directory, run the following console command.
+
+npm install multer
+Multer handles reading the file from the HTTP request, enforcing the size limit of the upload, and storing the file in the uploads directory. Additionally our service code does the following:
+
+Handles requests for static files so that we can serve up our frontend code.
+Handles errors such as when the 64k file limit is violated.
+Provides a GET endpoint to serve up a file from the uploads directory.
+
+Storage Services AWS S3
+
+Authorization services
+If your application is going to remember a user's data then it will need a way to uniquely associate the data with a particular credential. That usually means that you authenticate a user by asking for information, such as an email address and password. You then remember, for some period of time, that the user has authenticated by storing an authentication token on the user's device. Often that token is stored in a cookie that is passed back to your web service on each request. The service can now associate data that the user supplies with a unique identifier that corresponds to their authorization token.
+
+GetMe endpoint
+This uses the authentication token stored in the cookie to look up and return information about the authenticated user. If the token or user do not exist it returns a 401 (unauthorized) status code.
+
+When you run a program from the console, the program will automatically terminate when you close the console or if the computer restarts. In order to keep programs running after a shutdown you need to register it as a daemon. The term daemon comes from the idea of something that is always there working in the background. Hopefully you only have good daemons running in your background.
+
+We want our web services to continue running as a daemon. We would also like an easy way to start and stop our services. That is what Process Manager 2 (PM2) does.
+
+Command	Purpose
+pm2 ls	List all of the hosted node processes
+pm2 monit	Visual monitor
+pm2 start index.js -n simon	Add a new process with an explicit name
+pm2 start index.js -n startup -- 4000	Add a new process with an explicit name and port parameter
+pm2 stop simon	Stop a process
+pm2 restart simon	Restart a process
+pm2 delete simon	Delete a process from being hosted
+pm2 delete all	Delete all processes
+pm2 save	Save the current processes across reboot
+pm2 restart all	Reload all of the processes
+pm2 restart simon --update-env	Reload process and update the node version to the current environment definition
+pm2 update	Reload pm2
+pm2 start env.js --watch --ignore-watch="node_modules"	Automatically reload service when index.js changes
+pm2 describe simon	Describe detailed process information
+pm2 startup	Displays the command to run to keep PM2 running after a reboot.
+pm2 logs simon	Display process logs
+pm2 env 0	Display environment variables for process. Use pm2 ls to get the process ID
+
+
+Creating a WebSocket conversation
+JavaScript running on a browser can initiate a WebSocket connection with the browser's WebSocket API. First you create a WebSocket object by specifying the port you want to communicate on.
+
+You can then send messages with the send function, and register a callback using the onmessage function to receive messages.
+~~~
+const socket = new WebSocket('ws://localhost:9900');
+
+socket.onmessage = (event) => {
+  console.log('received: ', event.data);
+};
+
+socket.send('I am listening');
+~~~
+The server uses the ws package to create a WebSocketServer that is listening on the same port the browser is using. By specifying a port when you create the WebSocketServer, you are telling the server to listen for HTTP connections on that port and to automatically upgrade them to a WebSocket connection if the request has a connection: Upgrade header.
+
+When a connection is detected it calls the server's on connection callback. The server can then send messages with the send function, and register a callback using the on message function to receive messages.
+
+react
+~~~
+const i = 3;
+const list = (
+  <ol class='big'>
+    <li>Item {i}</li>
+    <li>Item {3 + i}</li>
+  </ol>
+);
+~~~
+~~~
+const i = 3;
+const list = React.createElement(
+  'ol',
+  { class: 'big' },
+  React.createElement('li', null, 'Item ', i),
+  React.createElement('li', null, 'Item ', 3 + i)
+);
+
+~~~
+The render function
+One of the primary purposes of a component is to generate the user interface. This is done with the component's render function. Whatever is returned from the render function is inserted into the component HTML element.
+
+As a simple example, a JSX file containing a React component element named Demo would cause React to load the Demo component, call the render function, and insert the result into the place of the Demo element.
+~~~
+<div>
+  Component: <Demo />
+</div>
+~~~
+~~~
+function Demo() {
+  const who = 'world';
+  return <b>Hello {who}</b>;
 }
 ~~~
+In addition to properties, a component can have internal state. Component state is created by calling the React.useState hook function. The useState function returns a variable that contains the current state and a function to update the state. The following example creates a state variable called clicked and toggles the click state in the updateClicked function that gets called when the paragraph text is clicked.
 
+~~~
+const Clicker = () => {
+  const [clicked, updateClicked] = React.useState(false);
 
+  const onClicked = (e) => {
+    updateClicked(!clicked);
+  };
+
+  return <p onClick={(e) => onClicked(e)}>clicked: {`${clicked}`}</p>;
+};
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Clicker />);
+~~~
+Toolchains
+As web programming becomes more and more complex it became necessary to abstract away some of that complexity with a series of tools. Some common functional pieces in a web application tool chain include:
+
+Code repository - Stores code in a shared, versioned location.
+Linter - Removes, or warns of, non-idiomatic code usage.
+Prettier - Formats code according to a shared standard.
+Transpiler - Compiles code into a different format. For example, from JSX to JavaScript, TypeScript to JavaScript, or SCSS to CSS.
+Polyfill - Generates backward compatible code for supporting old browser versions that do not support the latest standards.
+Bundler - Packages code into bundles for delivery to the browser. This enables compatibility (for example with ES6 module support), or performance (with lazy loading).
+Minifier - Removes whitespace and renames variables in order to make code smaller and more efficient to deploy.
+Testing - Automated tests at multiple levels to ensure correctness.
+Deployment - Automated packaging and delivery of code from the development environment to the production environment.
+
+vite
+
+Directory	File	Purpose
+./		
+index.html	Primary page for the application. This is the starting point to load all of the JSX components beginning with main.jsx.
+package.json	NPM definition for package dependencies and script commands. This is what maps npm run dev to actually start up Vite.
+package-lock.json	Version constraints for included packages (do not edit this).
+vite.config.js	Configuration setting for Vite. Specifically this sets up React for development.
+./public		
+vite.svg	Vite logo for use as favicon and for display in the app.
+./src		
+main.jsx	Entry point for code execution. This simply loads the App component found in App.jsx.
+index.css	CSS for the entire application.
+App.jsx	JSX for top level application component. This displays the logs and implements the click counter.
+App.css	CSS for the top level application component.
+./src/assets		
+react.svg	React logo for display in the app.
+
+JSX vs JS
+The Vite CLI uses the .jsx extension for JSX files instead of the JavaScript .js extension. The Babel transpiler will work with either one, but some editor tools will work differently based upon the extension. For this reason, you should prefer .jsx for files that contain JSX. The developers at AirBNB had an interesting conversation on this topic that you might browse if you would like to consider the differing opinions on this subject.
+
+Building a production release
+When you execute npm run dev you are bundling the code to a temporary directory that the Vite debug HTTP server loads from. When you want to bundle your application so that you can deploy to a production environment you need to run npm run build. This executes the build script found in your package.json and invokes the Vite CLI. vite build transpiles, minifies, injects the proper JavaScript, and then outputs everything to a deployment-ready version contained in a distribution subdirectory named dist.
+
+router
+A web framework router provides essential functionality for single-page applications. With a multiple-webpage application the headers, footers, navigation, and common components must be either duplicated in each HTML page, or injected before the server sends the page to the browser. With a single page application, the browser only loads one HTML page and then JavaScript is used to manipulate the DOM and give it the appearance of multiple pages. The router defines the routes a user can take through the application, and automatically manipulates the DOM to display the appropriate framework components.
+
+React does not have a standard router package, and there are many that you can choose from. We will use react-router-dom Version 6. The simplified routing functionality of React-router-dom derives from the project react-router for its core functionality. Do not confuse the two, or versions of react-router-dom before version 6, when reading tutorials and documentation.
+
+A basic implementation of the router consists of a BrowserRouter component that encapsulates the entire application and controls the routing action. The Link, or NavLink, component captures user navigation events and modifies what is rendered by the Routes component by matching up the to and path attributes.
+~~~
+// Inject the router into the application root DOM element
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  // BrowserRouter component that controls what is rendered
+  // NavLink component captures user navigation requests
+  // Routes component defines what component is routed to
+  <BrowserRouter>
+    <div className='app'>
+      <nav>
+        <NavLink to='/'>Home</Link>
+        <NavLink to='/about'>About</Link>
+        <NavLink to='/users'>Users</Link>
+      </nav>
+
+      <main>
+        <Routes>
+          <Route path='/' element={<Home />} exact />
+          <Route path='/about' element={<About />} />
+          <Route path='/users' element={<Users />} />
+          <Route path='*' element={<Navigate to='/' replace />} />
+        </Routes>
+      </main>
+    </div>
+  </BrowserRouter>
+);
+~~~
+reactivity
+
+Making the UI react to changes in user input or data, is one of the architectural foundations of React. React enables reactivity with three major pieces of a React component: props, state, and render.
+
+When a component's JSX is rendered, React parses the JSX and creates a list of any references to the component's state or prop objects. React then monitors those objects and if it detects that they have changed it will call the component's render function so that the impact of the change is visualized.
+
+The following example contains two components: a parent <Survey/> component and a child <Question/> component. The Survey has a state named color. The Question has a property named answer. The Survey passes its color state to the Question as a property. This means that any change to the Survey's color will also be reflected in the Question's color. This is a powerful means for a parent to control a child's functionality.
+
+Be careful about your assumptions of when state is updated. Just because you called updateState does not mean that you can access the updated state on the next line of code. The update happens asynchronously, and therefore you never really know when it is going to happen. You only know that it will eventually happen.
+
+~~~
+const Survey = () => {
+  const [color, updateColor] = React.useState('#737AB0');
+
+  // When the color changes update the state
+  const onChange = (e) => {
+    updateColor(e.target.value);
+  };
+
+  return (
+    <div>
+      <h1>Survey</h1>
+
+      {/* Pass the Survey color  as a parameter to the Question.
+          When the color changes the Question parameter will also be updated and rendered. */}
+      <Question answer={color} />
+
+      <p>
+        <span>Pick a color: </span>
+        {/* Set the Survey color state as a the value of the color picker.
+            When the color changes, the value will also be updated and rendered. */}
+        <input type='color' onChange={(e) => onChange(e)} value={color} />
+      </p>
+    </div>
+  );
+};
+
+// The Question component
+const Question = ({ answer }) => {
+  return (
+    <div>
+      {/* Answer rerendered whenever the parameter changes */}
+      <p>Your answer: {answer}</p>
+    </div>
+  );
+};
+
+ReactDOM.render(<Survey />, document.getElementById('root'));
+~~~
+react hooks
+
+React hooks allow React function style components to be able to do everything that a class style component can do and more. Additionally, as new features are added to React they are including them as hooks. This makes function style components the preferred way of doing things in React. You have already seen one use of hooks to declare and update state in a function component with the useState hook.
+
+~~~
+function Clicker({initialCount}) {
+  const [count, updateCount] = React.useState(initialCount);
+  return <div onClick={() => updateCount(count + 1)}>Click count: {count}</div>;
+}
+
+ReactDOM.render(<Clicker initialCount={3} />, document.getElementById('root'));
+~~~
+The useEffect hook allows you to represent lifecycle events. For example, if you want to run a function every time the component completes rendering, you could do the following.
+~~~
+function UseEffectHookDemo() {
+  React.useEffect(() => {
+    console.log('rendered');
+  });
+
+  return <div>useEffectExample</div>;
+}
+
+ReactDOM.render(<UseEffectHookDemo />, document.getElementById('root'));
+~~~
+~~~
+function UseEffectHookDemo() {
+  const [count, updateCount] = React.useState(0);
+  React.useEffect(() => {
+    console.log('rendered');
+
+    return function cleanup() {
+      console.log('cleanup');
+    };
+  });
+
+  return <div onClick={() => updateCount(count + 1)}>useEffectExample {count}</div>;
+}
+
+ReactDOM.render(<UseEffectHookDemo />, document.getElementById('root'));
+~~~
+Hook dependencies
+You can control what triggers a useEffect hook by specifying its dependencies. In the following example we have two state variables, but we only want the useEffect hook to be called when the component is initially called and when the first variable is clicked. To accomplish this you pass an array of dependencies as a second parameter to the useEffect call.
+~~~
+function UseEffectHookDemo() {
+  const [count1, updateCount1] = React.useState(0);
+  const [count2, updateCount2] = React.useState(0);
+
+  React.useEffect(() => {
+    console.log(`count1 effect triggered ${count1}`);
+  }, [count1]);
+
+  return (
+    <ol>
+      <li onClick={() => updateCount1(count1 + 1)}>Item 1 - {count1}</li>
+      <li onClick={() => updateCount2(count2 + 1)}>Item 2 - {count2}</li>
+    </ol>
+  );
+}
+
+ReactDOM.render(<UseEffectHookDemo />, document.getElementById('root'));
+~~~
